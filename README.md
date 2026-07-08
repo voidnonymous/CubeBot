@@ -1,50 +1,55 @@
 # MINIRUNNER
 
-## AI Disclaimer
-This is 100% Vibecoded. Even though it is, I haven't had many issues with it (besides it accidentally becoming a forkbomb once, which is fixed).
+Headless Node.js chat-race bot for ManaCube with a WebUI control panel.
 
-
-Standalone headless Node.js Minecraft runner for `play.manacube.com`.
+**Minecraft 1.21.11, Node >=20, mineflayer ^4.29.0**
 
 ## Setup
 
 ```sh
-cd MINIRUNNER
 npm install
 npm start
 ```
 
-After clicking Join, the web UI shows the Microsoft device-code URL and code while login is waiting. Complete that once and mineflayer caches the session.
+Server starts on `http://localhost:3694`. Open it, click Join, and complete the Microsoft device-code login in your browser. Session is cached after that.
 
-## Environment
+## WebUI
 
-```sh
-MC_USERNAME=you@example.com
-MC_AUTH=microsoft
-PROFILES_FOLDER=.minecraft-auth
-MC_HOST=play.manacube.com
-MC_VERSION=1.21.11
-WEB_HOST=0.0.0.0
-WEB_PORT=3694
-WORD_LIST_PATH=../src/main/resources/chatrace_words.txt
-```
+Catppuccin Mocha themed. Tabs: Players, Chat, Logs, Config. KB shortcuts Ctrl+1-4, Ctrl+Enter to send. Config panel lets you tune anti-detection live.
 
-Defaults are already set for ManaCube, Minecraft `1.21.11`, and the bundled word list from the parent mod.
+## Anti-Detection
 
-## Web UI / API
+Typing speed targets ~60-80 WPM with randomized reaction time, skip rate, wrong answers, typos + corrections, fatigue breaks, active-hour jitter, and join grace. Tunable live from the Config panel. User-active mode: sending any WebUI message suspends anti-detection gating for 5 minutes.
 
-Open:
+## API
 
-```txt
-http://127.0.0.1:3694/
-```
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/stats` | Full state snapshot (players, chats, logs, memory, mana history) |
+| GET | `/api/config` | Current config |
+| POST | `/api/config` | Update config |
+| GET | `/api/scoreboard` | Parsed scoreboard entries |
+| GET | `/api/raw-scoreboard` | Raw scoreboard JSON |
+| GET | `/api/private-mode` | Private messaging target |
+| GET | `/api/auth` | Auth status |
+| POST | `/api/send` | Send a chat message |
+| POST | `/api/join` | Join server |
+| POST | `/api/leave` | Leave server |
+| POST | `/api/hardcore` | Hardcore mode |
+| POST | `/api/warp-afk` | Warp to AFK |
+| POST | `/api/reset` | Reset stats |
+| POST | `/api/reload-words` | Reload word list |
+| POST | `/api/gc` | Trigger garbage collection |
+| POST | `/api/longterm` | Long-term stats |
 
-Endpoints:
+## Env (all optional, sensible defaults)
 
-- `GET /api/stats`
-- `GET /api/auth`
-- `POST /api/join`
-- `POST /api/leave`
-- `POST /api/reset`
-- `POST /api/hardcore`
-- `POST /api/warp-afk`
+| Variable | Default |
+|----------|---------|
+| `MC_USERNAME` | *from config* |
+| `MC_AUTH` | microsoft |
+| `MC_HOST` | play.manacube.com |
+| `MC_VERSION` | 1.21.11 |
+| `WEB_HOST` | 0.0.0.0 |
+| `WEB_PORT` | 3694 |
+| `AUTO_JOIN` | false |
