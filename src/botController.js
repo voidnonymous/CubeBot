@@ -694,7 +694,7 @@ export class BotController {
     if (randomInt(0, 99) < ANTI_TYPO_RATE && finalAnswer.length > 3) {
       const pos = randomInt(0, finalAnswer.length - 1);
       const orig = finalAnswer[pos];
-      const typoChar = String.fromCharCode(97 + randomInt(0, 25));
+      const typoChar = fatFinger(orig);
       if (typoChar !== orig) {
         if (randomInt(0, 99) < ANTI_TYPO_FIX_RATE) {
           // Typo + correction
@@ -778,7 +778,7 @@ export class BotController {
       const word = candidates[0];
       const pos = randomInt(0, word.length - 1);
       const orig = word[pos];
-      const typoChar = String.fromCharCode(97 + randomInt(0, 25));
+      const typoChar = fatFinger(orig);
       if (typoChar !== orig) {
         finalCandidates = [word.slice(0, pos) + typoChar + word.slice(pos + 1)];
         this.stats.recordLog('info', `Anti: typo in scramble answer ('${orig}'→'${typoChar}' at pos ${pos})`);
@@ -1049,6 +1049,25 @@ export class BotController {
 
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const QWERTY = new Map([
+  ['q',['w','a']],   ['w',['q','e','s']],   ['e',['w','r','d']],
+  ['r',['e','t','f']],['t',['r','y','g']],  ['y',['t','u','h']],
+  ['u',['y','i','j']],['i',['u','o','k']],  ['o',['i','p','l']],
+  ['p',['o']],
+  ['a',['q','s','z']],  ['s',['w','a','d','x']],['d',['e','s','f','c']],
+  ['f',['r','d','g','v']],['g',['t','f','h','b']],['h',['y','g','j','n']],
+  ['j',['u','h','k','m']],['k',['i','j','l']],    ['l',['o','k','p']],
+  ['z',['a','x']],  ['x',['s','z','c']],['c',['d','x','v']],
+  ['v',['f','c','b']],['b',['g','v','n']],['n',['h','b','m']],
+  ['m',['j','n']],
+]);
+
+function fatFinger(c) {
+  const neighbors = QWERTY.get(c);
+  if (!neighbors) return c;
+  return neighbors[randomInt(0, neighbors.length - 1)];
 }
 
 function typeDelay(charLen) {

@@ -628,7 +628,7 @@
         for (const line of lines) {
           try { await fetch('/api/send', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:line.trim()})}); }
           catch(e) { console.error(e); }
-          if (lines.length > 1) await new Promise(r => setTimeout(r, 1500));
+          if (lines.length > 1) await new Promise(r => setTimeout(r, lines.length > 3 ? 800 : 1500));
         }
         await load();
       };
