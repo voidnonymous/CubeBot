@@ -17,10 +17,6 @@ Server starts on `http://localhost:3694`. Open it, click Join, and complete the 
 
 Catppuccin Mocha themed. Tabs: Players, Chat, Logs, Config. KB shortcuts Ctrl+1-4, Ctrl+Enter to send. Config panel lets you tune anti-detection live.
 
-## Anti-Detection
-
-Typing speed targets ~60-80 WPM with randomized reaction time, skip rate, wrong answers, typos + corrections, fatigue breaks, active-hour jitter, and join grace. Tunable live from the Config panel. User-active mode: sending any WebUI message suspends anti-detection gating for 5 minutes.
-
 ## API
 
 | Method | Endpoint | Description |
