@@ -1,5 +1,9 @@
 # MINIRUNNER
 
+## AI Disclaimer
+This is 100% Vibecoded. Even though it is, I haven't had many issues with it (besides it accidentally becoming a forkbomb once, which is fixed).
+
+
 Standalone headless Node.js Minecraft runner for `play.manacube.com`.
 
 ## Setup
