@@ -1,0 +1,17 @@
+{
+  "name": "minirunner",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Headless ManaCube chat race runner with a small control server.",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "mineflayer": "^4.29.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

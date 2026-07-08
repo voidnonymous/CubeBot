@@ -1,0 +1,1058 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <title>MINIRUNNER</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --sidebar-w: 260px;
+        --base: #1e1e2e; --mantle: #181825; --crust: #11111b;
+        --text: #cdd6f4; --subtext: #a6adc8; --subtext-dark: #6c7086;
+        --surface0: #313244; --surface1: #45475a; --surface2: #585b70;
+        --blue: #89b4fa; --lavender: #b4befe; --green: #a6e3a1;
+        --yellow: #f9e2af; --red: #f38ba8; --mauve: #cba6f7;
+        --radius: 12px; --space: 14px;
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0; height: 100%; overflow: hidden;
+        font-family: 'Outfit', system-ui, sans-serif;
+        background: var(--base); color: var(--text);
+      }
+      body { touch-action: manipulation; }
+      ::-webkit-scrollbar { width: 5px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: var(--surface1); border-radius: 3px; }
+
+      #app { height: 100vh; display: flex; flex-direction: column; padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+      header {
+        height: 56px; flex-shrink: 0; display: flex;
+        justify-content: space-between; align-items: center;
+        padding: 0 18px; background: var(--mantle);
+        border-bottom: 1px solid var(--surface0);
+      }
+      @media (max-width: 520px) {
+        header { height: 48px; padding: 0 10px; }
+        h1 { font-size: 13px; }
+        .badge { padding: 3px 7px; }
+        #sttxt { display: none; }
+      }
+      .logo-group { display: flex; align-items: center; gap: 10px; }
+      .logo {
+        width: 26px; height: 26px; background: var(--blue); border-radius: 6px;
+        display: flex; align-items: center; justify-content: center;
+        font-weight: 800; font-size: 13px; color: var(--mantle);
+      }
+      h1 { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: -0.3px; }
+      .badge {
+        display: flex; align-items: center; gap: 6px;
+        background: var(--surface0); padding: 4px 10px;
+        border-radius: 20px; border: 1px solid var(--surface1);
+      }
+      .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--subtext-dark); }
+      .dot.on { background: var(--green); box-shadow: 0 0 5px rgba(166,227,161,0.3); }
+      .dot.ing { background: var(--yellow); box-shadow: 0 0 5px rgba(249,226,175,0.3); }
+      .dot.off { background: var(--red); box-shadow: 0 0 5px rgba(243,139,168,0.3); }
+      #sttxt { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--subtext); }
+
+      .layout {
+        flex: 1; min-height: 0; display: flex;
+        max-width: 1440px; width: 100%; margin: 0 auto;
+        padding: var(--space); gap: var(--space);
+      }
+
+      #sidebar-overlay { display: none; }
+
+      .sidebar {
+        width: var(--sidebar-w); flex-shrink: 0; display: flex; flex-direction: column;
+        gap: var(--space); overflow-y: auto;
+      }
+
+      #mobile-bar {
+        display: none; flex-shrink: 0; align-items: center; gap: 10px;
+        padding: 6px 10px; background: var(--mantle); border-bottom: 1px solid var(--surface0);
+        font-size: 12px; color: var(--subtext); overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      #mobile-bar::-webkit-scrollbar { display: none; }
+      .mob-mana { color: var(--green); font-weight: 700; }
+      .mob-menu-btn {
+        margin-left: auto; background: var(--surface0); border: 1px solid var(--surface1);
+        color: var(--text); font-size: 16px; width: 32px; height: 32px; border-radius: 6px;
+        cursor: pointer; display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+      }
+      #mob-status { display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+      #mob-status .dot { width: 7px; height: 7px; flex-shrink: 0; }
+      #mob-user { font-weight: 600; color: var(--text); white-space: nowrap; }
+      #mob-up { color: var(--subtext-dark); white-space: nowrap; font-size: 11px; }
+
+      .hamburger {
+        display: none; background: var(--surface0); border: 1px solid var(--surface1);
+        color: var(--text); font-size: 18px; width: 36px; height: 36px; border-radius: 8px;
+        cursor: pointer; align-items: center; justify-content: center;
+      }
+      @media (max-width: 600px) { .hamburger { display: flex; } }
+
+      .sidebar-overlay {
+        display: none; position: fixed; inset: 0; z-index: 99;
+        background: rgba(0,0,0,0.5);
+      }
+      .sidebar-overlay.show { display: block; }
+
+      #sidebar-drawer .sidebar-drawer-hdr { display: none; }
+      #sidebar-drawer.show .sidebar-drawer-hdr { display: flex; }
+
+      @media (max-width: 600px) {
+        #sidebar-drawer {
+          position: fixed; left: 0; top: 0; bottom: 0; z-index: 100;
+          background: var(--mantle); border-right: 1px solid var(--surface0);
+          padding: 14px; gap: 12px; overflow-y: auto; width: 80vw; max-width: 320px;
+          transform: translateX(-100%); transition: transform .2s ease;
+        }
+        #sidebar-drawer.show { transform: translateX(0); }
+        #sidebar-drawer .sidebar-drawer-hdr { display: flex; }
+      }
+      .sidebar .card {
+        background: var(--mantle); border: 1px solid var(--surface0);
+        border-radius: var(--radius); padding: 12px 14px;
+      }
+      .card-hdr {
+        display: flex; justify-content: space-between; align-items: center;
+        margin-bottom: 6px; padding-bottom: 6px;
+        border-bottom: 1px solid var(--surface0);
+      }
+      .mem-bar { display:flex; align-items:center; gap:6px; height:22px; margin:0 0 8px; background:var(--surface0); border-radius:4px; overflow:hidden; position:relative; }
+      .mem-fill { position:absolute; top:0; left:0; height:100%; background:var(--blue); opacity:.35; transition:width 1s; border-radius:4px; }
+      .mem-lbl { position:relative; z-index:1; font-size:10px; color:var(--text); font-family:'JetBrains Mono',monospace; white-space:nowrap; flex-shrink:0; padding-left:8px; }
+      .mem-rss { position:relative; z-index:1; font-size:9px; color:var(--subtext-dark); font-family:'JetBrains Mono',monospace; white-space:nowrap; margin-left:auto; }
+      .mem-gc { position:relative; z-index:1; font-size:9px; height:16px; line-height:16px; padding:0 6px; border:0; border-radius:3px; background:var(--surface1); color:var(--text); cursor:pointer; flex-shrink:0; }
+      .mem-gc:hover { background:var(--surface2); }
+      .mem-gc:active { background:var(--green); color:var(--base); }
+      .chk-bar { display:flex; align-items:center; gap:6px; height:18px; margin:-4px 0 8px; font-size:10px; font-family:'JetBrains Mono',monospace; }
+      .chk-lbl { color:var(--subtext-dark); }
+      .chk-num { color:var(--subtext); }
+      .chk-chn { margin-left:auto; color:var(--yellow); }
+      .card-title {
+        font-size: 9px; font-weight: 700; text-transform: uppercase;
+        letter-spacing: 1px; color: var(--subtext);
+      }
+      .row {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 5px 0; font-size: 13px;
+      }
+      .row + .row { border-top: 1px solid var(--surface0); }
+      .lbl { color: var(--subtext); }
+      .val { font-weight: 700; font-variant-numeric: tabular-nums; color: var(--blue); }
+      .val.green { color: var(--green); }
+      .val.yellow { color: var(--yellow); }
+      .mana-big { font-size: 24px; font-weight: 800; color: var(--green); }
+
+      .sparkline { width: 100%; height: 36px; margin-top: 6px; }
+
+      .btn-g { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+      .btn {
+        background: var(--surface0); border: 1px solid var(--surface1);
+        color: var(--text); padding: 7px 10px; border-radius: 7px;
+        font-family: inherit; font-size: 11px; font-weight: 600;
+        cursor: pointer; transition: all .15s; text-align: center;
+      }
+      .btn:hover { background: var(--surface1); }
+      .btn:active { transform: translateY(1px); }
+      .btn-sm {
+        background: var(--surface0); border: 1px solid var(--surface1);
+        color: var(--text); padding: 1px 7px; border-radius: 5px;
+        font-family: inherit; font-size: 10px; font-weight: 700;
+        cursor: pointer; transition: all .15s; text-align: center; line-height: 1.4;
+      }
+      .btn-sm.on { background: rgba(166,227,161,0.12); border-color: rgba(166,227,161,0.3); color: var(--green); }
+      .btn-sm.off { background: rgba(243,139,168,0.12); border-color: rgba(243,139,168,0.3); color: var(--red); }
+      .btn.join { background: rgba(166,227,161,0.12); border-color: rgba(166,227,161,0.3); color: var(--green); }
+      .btn.join:hover { background: rgba(166,227,161,0.2); }
+      .btn.leave { background: rgba(243,139,168,0.12); border-color: rgba(243,139,168,0.3); color: var(--red); }
+      .btn.leave:hover { background: rgba(243,139,168,0.2); }
+      .btn.prim { background: rgba(203,166,247,0.12); border-color: rgba(203,166,247,0.3); color: var(--mauve); }
+      .btn.prim:hover { background: rgba(203,166,247,0.2); }
+      .btn.danger { background: rgba(243,139,168,0.12); border-color: rgba(243,139,168,0.3); color: var(--red); }
+      .btn.danger:hover { background: rgba(243,139,168,0.2); }
+      .btn.full { grid-column: 1 / -1; }
+      .btn:disabled { opacity: .4; pointer-events: none; }
+
+      .main {
+        flex: 1; min-width: 0; display: flex; flex-direction: column;
+        gap: var(--space); min-height: 0;
+      }
+
+      .tabs {
+        flex-shrink: 0; display: flex; gap: 2px; background: var(--mantle);
+        border: 1px solid var(--surface0); border-radius: var(--radius); padding: 3px;
+      }
+      .tab {
+        flex: 1; background: transparent; border: none; color: var(--subtext);
+        padding: 8px 14px; border-radius: 8px; font-family: inherit;
+        font-size: 13px; font-weight: 600; cursor: pointer; transition: all .2s;
+        display: flex; align-items: center; justify-content: center; gap: 6px;
+      }
+      .tab:hover { color: var(--text); }
+      .tab.active { background: var(--surface0); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+      .tab .kbd {
+        font-family: 'JetBrains Mono',monospace; font-size: 9px; padding: 1px 4px;
+        background: var(--surface1); border-radius: 3px; color: var(--subtext-dark);
+        margin-left: 2px;
+      }
+
+      .panel { display: none; flex: 1; min-height: 0; }
+      .panel.active { display: flex; flex-direction: column; gap: var(--space); min-height: 0; }
+
+      .banners { flex-shrink: 0; display: flex; flex-direction: column; gap: 6px; }
+      .banner {
+        padding: 8px 12px; border-radius: 8px; font-size: 12px; line-height: 1.5;
+        border: 1px solid transparent; display: none; align-items: center; gap: 8px;
+      }
+      .banner.show { display: flex; }
+      .banner.warn { background: rgba(249,226,175,0.06); border-color: rgba(249,226,175,0.2); color: var(--yellow); }
+      .banner.err { background: rgba(243,139,168,0.06); border-color: rgba(243,139,168,0.2); color: var(--red); }
+      .banner a { color: inherit; }
+
+      .split {
+        display: grid; grid-template-columns: 1fr 1fr; gap: var(--space);
+        flex: 1; min-height: 0;
+      }
+      .split .card {
+        background: var(--mantle); border: 1px solid var(--surface0);
+        border-radius: var(--radius); padding: 12px;
+        display: flex; flex-direction: column; min-height: 0;
+      }
+
+      .scroll {
+        flex: 1; min-height: 0; overflow-y: auto;
+        background: var(--crust); border: 1px solid var(--surface0);
+        border-radius: 8px; padding: 10px;
+      }
+
+      .chat-scroll { display: flex; flex-direction: column; gap: 6px; }
+      .ci {
+        font-size: 13px; line-height: 1.5; word-break: break-word;
+        padding: 5px 9px; border-radius: 6px;
+        background: var(--mantle); border: 1px solid var(--surface0); color: var(--text);
+      }
+      .ct { font-family: 'JetBrains Mono',monospace; color: var(--subtext-dark); font-size: 10px; margin-right: 4px; }
+      .cu { font-weight: 700; cursor: pointer; color: var(--blue); padding: 1px 3px; border-radius: 3px; }
+      .cu:hover { background: var(--surface0); text-decoration: underline; }
+      .ci.pm { background: rgba(166,227,161,0.1); border-color: var(--green); }
+      .pt { background: var(--green); color: var(--base); font-size: 8px; font-weight: 800; padding: 1px 3px; border-radius: 3px; margin-right: 4px; }
+      .ci.sys { background: transparent; border-color: transparent; }
+      .ci.shout { border-color: var(--yellow); background: rgba(249,226,175,0.08); }
+      .st { color: var(--subtext); font-style: italic; }
+      .cp { margin: auto; color: var(--subtext-dark); font-size: 13px; font-style: italic; text-align: center; padding: 20px; }
+
+      .chat-in {
+        flex-shrink: 0; display: flex; gap: 6px; padding: 8px;
+        padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+        background: var(--mantle); border-top: 1px solid var(--surface0);
+      }
+      .chat-in input, .chat-in textarea {
+        flex: 1; background: var(--surface0); border: 1px solid var(--surface1);
+        color: var(--text); padding: 7px 10px; border-radius: 7px;
+        font-family: inherit; font-size: 13px; outline: none;
+      }
+      .chat-in input:focus, .chat-in textarea:focus { border-color: var(--blue); }
+      .chat-in textarea { resize: none; overflow: hidden; min-height: 34px; line-height: 1.4; }
+
+      .logs-scroll {
+        font-family: 'JetBrains Mono',monospace; font-size: 11px;
+        white-space: pre-wrap; color: #cbd5e1; line-height: 1.6;
+      }
+      .ll { display: block; margin-bottom: 2px; }
+      .lt { color: var(--subtext-dark); }
+      .ll-info { color: var(--blue); }
+      .ll-warn { color: var(--yellow); }
+      .ll-error { color: var(--red); }
+      .ll-auth { color: var(--mauve); font-weight: 700; }
+      .ll-command { color: var(--green); }
+
+      .fill-card {
+        flex: 1; display: flex; flex-direction: column; padding: 10px; min-height: 0;
+      }
+      .fill-col {
+        flex: 1; min-height: 0; display: flex; flex-direction: column;
+      }
+
+      .pl-grid { display: flex; flex-wrap: wrap; gap: 4px; }
+      .pl-tag {
+        background: var(--surface0); border: 1px solid var(--surface1);
+        border-radius: 5px; padding: 3px 8px; font-size: 12px; font-weight: 500; color: var(--text);
+      }
+      .sb-e {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 4px 0; font-size: 13px;
+      }
+      .sb-e + .sb-e { border-top: 1px solid var(--surface0); }
+      .sb-lbl { color: var(--subtext); }
+      .sb-v { font-weight: 700; color: var(--text); }
+      .sb-v.money { color: var(--green); }
+
+      .cfg-f { display: flex; flex-direction: column; gap: 8px; padding: 12px; }
+      .cfg-r {
+        display: flex; align-items: center; gap: 10px;
+      }
+      .cfg-r label {
+        width: 120px; flex-shrink: 0; font-size: 12px; font-weight: 600; color: var(--subtext); text-transform: uppercase; letter-spacing: .5px;
+      }
+      .cfg-r input, .cfg-r select {
+        flex: 1; background: var(--surface0); border: 1px solid var(--surface1);
+        color: var(--text); padding: 6px 9px; border-radius: 6px;
+        font-family: inherit; font-size: 12px; outline: none;
+      }
+      .cfg-r input:focus, .cfg-r select:focus { border-color: var(--blue); }
+      .cfg-r input[type=number] { max-width: 100px; }
+      .cfg-sep { font-size: 11px; font-weight: 700; color: var(--overlay); text-transform: uppercase; letter-spacing: 1px; padding: 6px 0 2px; border-top: 1px solid var(--surface1); margin-top: 4px; }
+      .cfg-hint { font-weight: 400; color: var(--overlay); text-transform: none; letter-spacing: 0; font-size: 10px; margin-left: 4px; }
+      #cfg-split { grid-template-columns: 1.4fr 1fr; }
+      @media (max-width: 899px) { #cfg-split { grid-template-columns: 1fr; } }
+
+      .sc-grid { display: flex; flex-direction: column; gap: 4px; }
+      .sc-r {
+        display: flex; align-items: center; gap: 6px;
+        background: var(--surface0); padding: 5px 8px; border-radius: 6px; font-size: 12px;
+      }
+      .sc-r .sc-cmd { flex: 1; font-family: 'JetBrains Mono',monospace; color: var(--green); }
+      .sc-r .sc-int { color: var(--subtext-dark); }
+      .sc-add {
+        display: flex; gap: 4px; margin-top: 4px;
+      }
+      .sc-add input { flex: 1; background: var(--surface0); border: 1px solid var(--surface1); color: var(--text); padding: 5px 8px; border-radius: 5px; font-family: inherit; font-size: 12px; outline: none; }
+      .sc-add input:focus { border-color: var(--blue); }
+      .sc-add input[type=number] { max-width: 80px; }
+
+      @media (hover: none) and (pointer: coarse) {
+        .btn, .tab { min-height: 44px; display: flex; align-items: center; justify-content: center; }
+        .chat-in input, .chat-in textarea, .sc-add input, .cfg-r input, .cfg-r select { min-height: 44px; font-size: 16px; }
+        .chat-in .btn { min-height: 44px; padding: 8px 16px; }
+        .sc-add .btn { min-height: 44px; }
+      }
+
+      @media (max-width: 899px) {
+        .layout { flex-direction: column; padding: 8px; gap: 8px; }
+        .sidebar { width: 100%; overflow: visible; flex-direction: row; flex-wrap: wrap; gap: 6px; }
+        .sidebar .card { flex: 1; min-width: 130px; padding: 8px 10px; }
+        .sidebar .card:last-child { flex-basis: 100%; }
+        .sidebar .card-hdr { margin-bottom: 3px; padding-bottom: 3px; }
+        .sidebar .row { padding: 3px 0; font-size: 12px; }
+        .mana-big { font-size: 18px; }
+        .btn-g { gap: 3px; }
+        .btn { font-size: 10px; padding: 5px 8px; }
+        .tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        .tabs::-webkit-scrollbar { display: none; }
+        .tab { flex: none; font-size: 12px; padding: 6px 10px; white-space: nowrap; }
+        .tab .kbd { display: none; }
+        .split { grid-template-columns: 1fr; }
+        .cfg-r { flex-wrap: wrap; }
+        .cfg-r label { width: 100%; font-size: 11px; }
+        .cfg-r input, .cfg-r select { width: 100%; }
+        .sparkline { height: 28px; }
+        .sc-add { flex-wrap: wrap; }
+        .sc-add input[type=number] { max-width: none; flex: 1; }
+      }
+
+      @media (max-width: 600px) {
+        header .badge { display: none; }
+
+        #mobile-bar { display: flex; }
+
+        .layout { flex-direction: column; padding: 6px; gap: 6px; }
+
+        /* sidebar becomes a fixed drawer, removed from layout flow */
+        .layout > .sidebar { flex-shrink: 0; width: auto; }
+
+        .main { gap: 6px; }
+
+        .tabs { padding: 2px; gap: 2px; border-radius: 8px; }
+        .tab { font-size: 11px; padding: 5px 9px; }
+
+        .split { gap: 6px; }
+        .split .card { padding: 8px; }
+        .scroll { padding: 8px; }
+        .ci { font-size: 13px; padding: 5px 8px; }
+        .ll { font-size: 10px; }
+        .chat-in { padding: 6px; padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px)); gap: 5px; }
+        .chat-in input { font-size: 16px; padding: 6px 10px; }
+
+        .cfg-f { padding: 6px; gap: 4px; }
+        .cfg-r { gap: 4px; }
+        .cfg-r label { font-size: 10px; }
+        .cfg-r input, .cfg-r select { font-size: 13px; padding: 5px 8px; }
+        .pl-tag { font-size: 11px; padding: 3px 6px; }
+        .card-title { font-size: 8px; }
+        .sc-r { font-size: 11px; padding: 4px 7px; }
+        .sc-add input { font-size: 13px; padding: 5px 7px; }
+        .sb-e { font-size: 11px; }
+        .mana-big { font-size: 20px; }
+        .sparkline { height: 28px; }
+
+        #panel-players > div:last-child { font-size: 9px; padding: 3px; }
+        .banner { font-size: 11px; padding: 6px 10px; }
+      }
+
+      @media (max-width: 400px) {
+        header { height: 42px; padding: 0 8px; }
+        h1 { font-size: 12px; }
+        .logo { width: 22px; height: 22px; font-size: 11px; }
+        .logo-group { gap: 6px; }
+        #mobile-bar { font-size: 10px; gap: 6px; padding: 4px 6px; }
+        .tab { font-size: 9px; padding: 4px 6px; }
+        .ci { font-size: 11px; padding: 3px 6px; }
+        .ct { display: none; }
+        .split .card { padding: 5px; }
+        .scroll { padding: 4px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div class="logo-group">
+          <div class="logo">M</div>
+          <h1>MINIRUNNER</h1>
+        </div>
+        <div class="badge">
+          <div id="dot" class="dot"></div>
+          <span id="sttxt">Checking</span>
+        </div>
+        <button id="sidebar-toggle" class="hamburger" aria-label="Menu">☰</button>
+      </header>
+
+      <!-- mobile status bar (shown on <600px, sidebar hidden) -->
+      <div id="mobile-bar">
+        <span id="mob-status"><span class="dot" id="mob-dot"></span><span id="mob-sttxt">Offline</span></span>
+        <span id="mob-user">-</span>
+        <span id="mob-mana" class="mob-mana">0</span>
+        <span id="mob-up">-</span>
+        <button id="mob-menu-btn" class="mob-menu-btn">☰</button>
+      </div>
+
+      <div id="sidebar-overlay" class="sidebar-overlay"></div>
+      <div class="layout">
+        <aside class="sidebar" id="sidebar-drawer">
+        <div style="justify-content:space-between;align-items:center;padding:0 0 8px 0;border-bottom:1px solid var(--surface0);" class="sidebar-drawer-hdr">
+          <span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--subtext);">Dashboard</span>
+          <button id="sidebar-close" style="background:none;border:none;color:var(--subtext-dark);font-size:20px;cursor:pointer;">✕</button>
+        </div>
+          <div class="card">
+            <div class="card-hdr"><span class="card-title">Bot</span></div>
+            <div class="row"><span class="lbl">Username</span><span class="val" id="bu">-</span></div>
+            <div class="row"><span class="lbl">Server</span><span class="val" id="bh">-</span></div>
+            <div class="row"><span class="lbl">Uptime</span><span class="val green" id="upt">-</span></div>
+          </div>
+
+          <div class="card">
+            <div class="card-hdr">
+              <span class="card-title">Mana</span>
+              <span style="font-size:11px;color:var(--subtext-dark);"><span id="mc">0</span> cycles</span>
+            </div>
+            <div class="mana-big" id="mana-v">0</div>
+            <canvas class="sparkline" id="sparkline"></canvas>
+          </div>
+
+          <div class="card">
+            <div class="card-hdr"><span class="card-title">Actions</span></div>
+            <div class="btn-g">
+              <button class="btn join" data-act="/api/join">Join</button>
+              <button class="btn leave" data-act="/api/leave">Leave</button>
+              <button class="btn prim" data-act="/api/hardcore">Hardcore</button>
+              <button class="btn prim" data-act="/api/warp-afk">Warp AFK</button>
+              <button class="btn full" data-act="/api/reset">Reset</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-hdr">
+              <span class="card-title">Solver</span>
+              <button id="atgl" class="btn-sm on">ON</button>
+            </div>
+            <div class="row"><span class="lbl">Typing</span><span class="val green" id="ty-s">0/0</span></div>
+            <div class="row"><span class="lbl">Scramble</span><span class="val green" id="sc-s">0/0</span></div>
+            <div class="row"><span class="lbl">Wins</span><span class="val yellow" id="wi-s">0</span></div>
+            <div class="row"><span class="lbl">Sent</span><span class="val" id="to-s">0</span></div>
+            <div class="row"><span class="lbl">Dupes</span><span class="val" id="du-s">0</span></div>
+            <div class="row"><span class="lbl">Unknown</span><span class="val" id="un-s">0</span></div>
+          </div>
+
+          <div class="card">
+            <div class="card-hdr"><span class="card-title">All-Time</span></div>
+            <div class="row"><span class="lbl">Mana</span><span class="val yellow" id="lt-mana">0</span></div>
+            <div class="row"><span class="lbl">Answers</span><span class="val" id="lt-ans">0</span></div>
+            <div class="row"><span class="lbl">Wins</span><span class="val green" id="lt-win">0</span></div>
+            <div class="row"><span class="lbl">Sessions</span><span class="val" id="lt-ses">0</span></div>
+            <div class="row"><span class="lbl">Since</span><span class="val" id="lt-first" style="font-size:12px;">-</span></div>
+          </div>
+        </aside>
+        <main class="main">
+          <div class="banners">
+            <div id="auth-banner" class="banner warn">
+              <span>🔑</span>
+              <span>Microsoft auth needed — <b id="auth-code"></b> at <a id="auth-link" href="#" target="_blank"></a></span>
+            </div>
+            <div id="err-banner" class="banner err">
+              <span>⚠️</span>
+              <span id="err-txt"></span>
+            </div>
+          </div>
+
+          <div class="tabs">
+            <button class="tab active" data-panel="panel-players">👥 Players <span class="kbd">^1</span></button>
+            <button class="tab" data-panel="panel-chat">💬 Chat <span class="kbd">^2</span></button>
+            <button class="tab" data-panel="panel-logs">📋 Logs <span class="kbd">^3</span></button>
+            <button class="tab" data-panel="panel-config">⚙ Config <span class="kbd">^4</span></button>
+          </div>
+
+          <div class="panel active" id="panel-players">
+            <div class="split">
+              <div class="card">
+                <div class="card-hdr"><span class="card-title">Players</span><span class="val" id="pl-c">0</span></div>
+                <div class="scroll"><div class="pl-grid" id="pl-g"><span class="cp">No data</span></div></div>
+              </div>
+              <div class="card">
+                <div class="card-hdr"><span class="card-title">Scoreboard</span></div>
+                <div class="scroll" id="sb-c"><span class="cp">No data</span></div>
+              </div>
+            </div>
+            <div style="flex-shrink:0;text-align:center;padding:6px;font-size:11px;">
+              <a href="/api/raw-scoreboard" target="_blank" style="color:var(--subtext-dark);">raw scoreboard JSON</a>
+            </div>
+          </div>
+
+          <div class="panel" id="panel-chat">
+            <div class="card fill-card">
+              <div class="card-hdr" style="margin-bottom:6px;padding-bottom:6px;">
+                <span class="card-title">Chat</span>
+                <span style="font-size:10px;color:var(--subtext-dark);">Click name to reply <span class="kbd" style="font-size:9px;padding:1px 3px;background:var(--surface1);border-radius:2px;">Esc</span> clear</span>
+              </div>
+              <div class="fill-col">
+                <div class="scroll">
+                  <div class="chat-scroll" id="chat-c"><div class="cp">Waiting...</div></div>
+                </div>
+                <div class="chat-in">
+                  <div id="pm-banner" style="display:none;background:var(--yellow);color:var(--base);padding:4px 8px;border-radius:6px;font-size:12px;margin-bottom:4px;"></div>
+                  <button id="nl-tgl" class="btn-sm" style="flex-shrink:0;font-size:10px;" title="Toggle newline-per-message">¶</button>
+                  <textarea id="msg-in" rows="1" placeholder="@name or message..."></textarea>
+                  <button class="btn prim" id="send-btn">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="panel-logs">
+            <div class="card fill-card">
+              <div class="card-hdr" style="margin-bottom:6px;padding-bottom:6px;">
+                <span class="card-title">Logs</span>
+              </div>
+              <div class="scroll logs-scroll" id="logs-c"><span class="cp">Waiting...</span></div>
+            </div>
+          </div>
+
+          <div class="panel" id="panel-config">
+            <div class="mem-bar" id="mem-bar">
+              <div class="mem-fill" id="mem-fill"></div>
+              <span class="mem-lbl" id="mem-lbl">-- MB / -- MB</span>
+              <span class="mem-rss" id="mem-rss">RSS -- MB</span>
+              <button class="mem-gc" id="mem-gc">GC</button>
+            </div>
+            <div class="chk-bar"><span class="chk-lbl">Chunks</span><span class="chk-num" id="chk-count">0</span><span class="chk-chn" id="chk-changed"></span></div>
+            <div class="split" id="cfg-split">
+              <div class="card" style="overflow-y:auto;">
+                <div class="card-hdr"><span class="card-title">Bot Config</span></div>
+                <div class="cfg-f" id="cfg-f"></div>
+              </div>
+              <div class="card" style="display:flex;flex-direction:column;min-height:0;">
+                <div class="card-hdr"><span class="card-title">Scheduled Commands</span></div>
+                <div class="scroll" style="flex:1;padding:8px;">
+                  <div class="sc-grid" id="sc-g"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        </div>
+    </div>
+
+    <script>
+      const esc = t => t ? t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') : '';
+      const fmt = s => { try { return new Date(s).toTimeString().split(' ')[0]; } catch { return ''; } };
+      const fmd = s => { try { const d=new Date(s); return d.toLocaleDateString()+' '+d.toTimeString().split(' ')[0]; } catch { return s||'-'; } };
+
+      // ----- Tabs -----
+      const tabPanels = {};
+      document.querySelectorAll('.tab').forEach(t => {
+        tabPanels[t.dataset.panel] = t;
+        t.addEventListener('click', () => switchTab(t.dataset.panel));
+      });
+      function switchTab(id) {
+        document.querySelectorAll('.tab').forEach(x => x.classList.toggle('active', x.dataset.panel === id));
+        document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id === id));
+      }
+
+      // ----- KB Shortcuts -----
+      let cmdHistory = [], cmdIdx = -1;
+      document.addEventListener('keydown', e => {
+        if (e.ctrlKey && e.key === '1') { e.preventDefault(); switchTab('panel-players'); }
+        if (e.ctrlKey && e.key === '2') { e.preventDefault(); switchTab('panel-chat'); msgIn.focus(); }
+        if (e.ctrlKey && e.key === '3') { e.preventDefault(); switchTab('panel-logs'); }
+        if (e.ctrlKey && e.key === '4') { e.preventDefault(); switchTab('panel-config'); }
+        if (e.key === 'Escape') { msgIn.value = ''; msgIn.blur(); }
+      });
+
+      // ----- Action buttons -----
+      document.querySelectorAll('.btn[data-act]').forEach(b => b.addEventListener('click', async () => {
+        try { b.disabled = true; await fetch(b.dataset.act, {method:'POST'}); await load(); }
+        catch(e) { console.error(e); } finally { b.disabled = false; }
+      }));
+
+      // ----- Chat -----
+      let nlMode = false;
+      const msgIn = document.getElementById('msg-in');
+      const sendBtn = document.getElementById('send-btn');
+      const nlTgl = document.getElementById('nl-tgl');
+      function autoResize() { msgIn.style.height = 'auto'; msgIn.style.height = msgIn.scrollHeight + 'px'; }
+      msgIn.addEventListener('input', autoResize);
+      const sendMsg = async () => {
+        const raw = msgIn.value; if (!raw.trim()) return;
+        const lines = nlMode ? raw.split('\n').filter(l => l.trim()) : [raw];
+        cmdHistory.push(raw); cmdIdx = cmdHistory.length;
+        msgIn.value = ''; autoResize();
+        for (const line of lines) {
+          try { await fetch('/api/send', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:line.trim()})}); }
+          catch(e) { console.error(e); }
+          if (lines.length > 1) await new Promise(r => setTimeout(r, 1500));
+        }
+        await load();
+      };
+      nlTgl.addEventListener('click', () => {
+        nlMode = !nlMode;
+        nlTgl.style.color = nlMode ? 'var(--green)' : 'var(--subtext-dark)';
+        nlTgl.style.background = nlMode ? 'rgba(166,227,161,0.1)' : 'transparent';
+        msgIn.placeholder = nlMode ? 'Each line = separate message...' : '@name or message...';
+      });
+      msgIn.addEventListener('keydown', e => {
+        if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); sendMsg(); }
+        if (e.key === 'ArrowUp' && !e.shiftKey) {
+          e.preventDefault();
+          if (cmdIdx > 0) { cmdIdx--; msgIn.value = cmdHistory[cmdIdx]; autoResize(); }
+        }
+        if (e.key === 'ArrowDown' && !e.shiftKey) {
+          e.preventDefault();
+          if (cmdIdx < cmdHistory.length - 1) { cmdIdx++; msgIn.value = cmdHistory[cmdIdx]; }
+          else { cmdIdx = cmdHistory.length; msgIn.value = ''; }
+          autoResize();
+        }
+      });
+      sendBtn.addEventListener('click', sendMsg);
+
+      function reply(u) {
+        msgIn.value = '/msg '+u+' '; msgIn.focus(); autoResize();
+        switchTab('panel-chat');
+      }
+
+      // ----- Chat render -----
+      let lcs = '';
+      function renderChats(chats) {
+        const c = document.getElementById('chat-c');
+        if (!chats) return;
+        const sig = chats.map(ch => ch.at+ch.text).join('|');
+        if (sig === lcs) return; lcs = sig;
+        const sc = c.parentElement;
+        const atBtm = sc.scrollHeight - sc.clientHeight <= sc.scrollTop + 60;
+        if (!chats.length) { c.innerHTML = '<div class="cp">Waiting...</div>'; return; }
+        c.innerHTML = [...chats].reverse().map(ch => {
+          const t = fmt(ch.at);
+          const isShout = /\[SHOUT\]/i.test(ch.text);
+          if (ch.isPm)
+            return `<div class="ci pm${isShout?' shout':''}"><span class="ct">[${t}]</span><span class="pt">PM</span><span class="cu" onclick="reply('${esc(ch.username)}')">${esc(ch.username)}</span><span style="color:var(--subtext-dark);margin:0 3px;">&raquo;</span><span>${esc(ch.content)}</span></div>`;
+          if (ch.username)
+            return `<div class="ci${isShout?' shout':''}"><span class="ct">[${t}]</span><span class="cu" onclick="reply('${esc(ch.username)}')">${esc(ch.username)}</span><span style="color:var(--subtext-dark);margin:0 3px;">&raquo;</span><span>${esc(ch.content)}</span></div>`;
+          return `<div class="ci sys${isShout?' shout':''}"><span class="ct">[${t}]</span><span class="st">${esc(ch.text)}</span></div>`;
+        }).join('');
+        if (atBtm) sc.scrollTop = sc.scrollHeight;
+      }
+
+      // ----- Logs render -----
+      let lls = '';
+      function renderLogs(logs) {
+        const c = document.getElementById('logs-c');
+        if (!logs) return;
+        const sig = logs.map(l => l.at + l.message).join('|');
+        if (sig === lls) return;
+        const atBtm = c.scrollHeight - c.clientHeight <= c.scrollTop + 60;
+        lls = sig;
+        if (!logs.length) { c.innerHTML = '<span class="cp">No logs</span>'; return; }
+        c.innerHTML = logs.map(l => {
+          const d = l.details ? ' ' + esc(l.details) : '';
+          return `<span class="ll"><span class="lt">[${fmt(l.at)}]</span> <span class="ll-${l.level}">${l.level}</span>: ${esc(l.message)}${d}</span>`;
+        }).join('');
+        if (atBtm) c.scrollTop = c.scrollHeight;
+      }
+
+      // ----- Scoreboard render -----
+      function renderSB(e) {
+        const c = document.getElementById('sb-c');
+        if (!e||!e.length) { c.innerHTML = '<span class="cp">No data</span>'; return; }
+        c.innerHTML = '<div>'+e.map(x =>
+          `<div class="sb-e"><span class="sb-lbl">${esc(x.label)}</span><span class="sb-v${x.isMoney?' money':''}">${esc(x.value)}</span></div>`
+        ).join('')+'</div>';
+      }
+
+      // ----- Players render -----
+      function renderPL(p) {
+        const g = document.getElementById('pl-g'), cnt = document.getElementById('pl-c');
+        if (!p||!p.length) { g.innerHTML = '<span class="cp">No players</span>'; cnt.textContent = '0'; return; }
+        cnt.textContent = p.length;
+        g.innerHTML = p.map(x => `<span class="pl-tag">${esc(x)}</span>`).join('');
+      }
+
+      // ----- Mana sparkline -----
+      let lastSpark = '';
+      function renderSpark(history) {
+        const c = document.getElementById('sparkline');
+        if (!history || !history.length) { c.style.display = 'none'; return; }
+        c.style.display = '';
+        const sig = history.map(h => h.t + ',' + h.v).join('|');
+        if (sig === lastSpark) return; lastSpark = sig;
+        const ctx = c.getContext('2d');
+        const W = c.width, H = c.height;
+        ctx.clearRect(0, 0, W, H);
+        const vals = history.map(h => h.v);
+        const min = Math.min(...vals), max = Math.max(...vals);
+        const range = Math.max(max - min, 10);
+        const pad = 2;
+        const x0 = pad, x1 = W - pad, y0 = pad, y1 = H - pad;
+        ctx.beginPath();
+        for (let i = 0; i < vals.length; i++) {
+          const x = x0 + (i / (vals.length - 1 || 1)) * (x1 - x0);
+          const y = y1 - ((vals[i] - min) / range) * (y1 - y0);
+          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = '#a6e3a1'; ctx.lineWidth = 1.5; ctx.stroke();
+        // fill
+        const last = vals[vals.length - 1];
+        const lx = x0 + ((vals.length - 1) / (vals.length - 1 || 1)) * (x1 - x0);
+        const ly = y1 - ((last - min) / range) * (y1 - y0);
+        ctx.lineTo(lx, y1); ctx.lineTo(x0, y1); ctx.closePath();
+        ctx.fillStyle = 'rgba(166,227,161,0.08)'; ctx.fill();
+      }
+
+      // ----- Config -----
+      const CFG_FIELDS = [
+        { key: 'host', label: 'Host', type: 'text' },
+        { key: 'port', label: 'Port', type: 'number' },
+        { key: 'version', label: 'Version', type: 'text' },
+        { key: 'username', label: 'Username', type: 'text' },
+        { key: 'auth', label: 'Auth', type: 'select', opts: ['microsoft', 'offline', 'mojang'] },
+        { key: 'acceptResourcePack', label: 'Accept RP', type: 'select', opts: ['true', 'false'] },
+        { key: 'hardcoreDelayMs', label: 'HC Delay (ms)', type: 'number' },
+        { key: 'warpAfkDelayMs', label: 'AFK Delay (ms)', type: 'number' },
+        { key: 'discordWebhookUrl', label: 'Webhook URL', type: 'text' },
+      ];
+      const ANTI_FIELDS = [
+{ key: 'skipRate', label: 'Skip Rate (%)', type: 'number', def: 35, hint: 'Chance to ignore prompt entirely' },
+{ key: 'wrongRate', label: 'Wrong Rate (%)', type: 'number', def: 20, hint: 'Chance to send wrong scramble answer' },
+        { key: 'maxRetries', label: 'Max Retries', type: 'number', def: 3, hint: 'Max scramble candidates to try' },
+        { key: 'typoRate', label: 'Typo Rate (%)', type: 'number', def: 10, hint: 'Chance to insert typo in answer' },
+        { key: 'typoFixRate', label: 'Typo Fix Rate (%)', type: 'number', def: 60, hint: 'Chance to correct typo after sending' },
+        { key: 'activeStartHour', label: 'Active Start (0-23)', type: 'number', def: 9, hint: 'Hour bot starts answering' },
+        { key: 'activeEndHour', label: 'Active End (0-23)', type: 'number', def: 23, hint: 'Hour bot stops answering' },
+        { key: 'activeJitterMinutes', label: 'Active Jitter (±min)', type: 'number', def: 60, hint: 'Randomize start/stop daily' },
+        { key: 'joinGraceMax', label: 'Join Grace (sec)', type: 'number', def: 120, hint: 'Max delay before first answer' },
+        { key: 'fatigueThreshold', label: 'Fatigue (answers)', type: 'number', def: 2, hint: 'Consecutive answers before tired' },
+        { key: 'fatigueSkipMin', label: 'Fatigue Min Skip', type: 'number', def: 5, hint: 'Min prompts to skip when tired' },
+        { key: 'fatigueSkipMax', label: 'Fatigue Max Skip', type: 'number', def: 7, hint: 'Max prompts to skip when tired' },
+        { key: 'breakIntervalMin', label: 'Break Interval Min (min)', type: 'number', def: 20, hint: 'Min minutes between breaks' },
+        { key: 'breakIntervalMax', label: 'Break Interval Max (min)', type: 'number', def: 60, hint: 'Max minutes between breaks' },
+        { key: 'breakDurationMin', label: 'Break Duration Min (min)', type: 'number', def: 3, hint: 'Min break length' },
+        { key: 'breakDurationMax', label: 'Break Duration Max (min)', type: 'number', def: 12, hint: 'Max break length' },
+      ];
+      let cfgCache = {};
+
+      function renderConfig(cfg) {
+        const f = document.getElementById('cfg-f');
+        let html = '';
+        for (const field of CFG_FIELDS) {
+          let val = cfg[field.key];
+          if (field.key === 'acceptResourcePack') val = String(val);
+          let input;
+          if (field.type === 'select') {
+            input = `<select data-cf="${field.key}">${field.opts.map(o => `<option ${o===val?'selected':''}>${o}</option>`).join('')}</select>`;
+          } else {
+            input = `<input type="${field.type}" data-cf="${field.key}" value="${esc(String(val??''))}">`;
+          }
+          html += `<div class="cfg-r"><label>${field.label}</label>${input}</div>`;
+        }
+        html += `<div class="cfg-sep">Anti-Detection</div>`;
+        const ad = cfg.antiDetection || {};
+        for (const field of ANTI_FIELDS) {
+          let val = ad[field.key] ?? field.def;
+          const hint = field.hint ? `<span class="cfg-hint">${field.hint}</span>` : '';
+          html += `<div class="cfg-r" data-ad="${field.key}"><label>${field.label}${hint}</label><input type="${field.type}" data-ad="${field.key}" value="${val}"></div>`;
+        }
+        html += `<div class="cfg-r" style="margin-top:4px;gap:6px;">
+          <button class="btn prim" id="cfg-save">Save</button>
+          <span id="cfg-st" style="font-size:11px;color:var(--subtext-dark);"></span>
+        </div>`;
+        f.innerHTML = html;
+        cfgCache = cfg;
+
+        document.getElementById('cfg-save').addEventListener('click', saveConfig);
+
+        // Scheduled commands
+        renderScheduled(cfg.scheduledCommands || []);
+      }
+
+      function collectConfig() {
+        const data = {};
+        document.querySelectorAll('[data-cf]').forEach(el => {
+          const k = el.dataset.cf;
+          let v = el.value;
+          if (el.type === 'number') v = Number(v);
+          if (k === 'acceptResourcePack') v = v === 'true';
+          data[k] = v;
+        });
+        const ad = {};
+        document.querySelectorAll('[data-ad]').forEach(el => {
+          const k = el.dataset.ad;
+          let v = el.value;
+          if (el.type === 'number') v = Number(v);
+          ad[k] = v;
+        });
+        if (Object.keys(ad).length) data.antiDetection = ad;
+        return data;
+      }
+
+      async function saveConfig() {
+        const data = collectConfig();
+        data.scheduledCommands = window._scCmds || [];
+        try {
+          const r = await fetch('/api/config', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+          const j = await r.json();
+          document.getElementById('cfg-st').textContent = j.ok ? 'Saved ✓' : 'Error: '+j.message;
+        } catch(e) {
+          document.getElementById('cfg-st').textContent = 'Error: '+e.message;
+        }
+      }
+
+      // ----- Scheduled commands UI -----
+      function renderScheduled(cmds) {
+        window._scCmds = cmds;
+        const g = document.getElementById('sc-g');
+        if (!cmds.length) {
+          g.innerHTML = '<div class="cp">No scheduled commands</div><div class="sc-add"></div>';
+        } else {
+          g.innerHTML = cmds.map((c, i) =>
+            `<div class="sc-r"><span class="sc-cmd">${esc(c.command)}</span><span class="sc-int">every ${Math.round(c.intervalMs/1000)}s</span><button class="btn danger" style="padding:2px 6px;font-size:10px;" onclick="removeSC(${i})">✕</button></div>`
+          ).join('');
+        }
+        const addDiv = document.createElement('div');
+        addDiv.className = 'sc-add';
+        addDiv.innerHTML = '<input id="sc-cmd-in" placeholder="/command"> <input type="number" id="sc-int-in" placeholder="secs" value="300" style="max-width:60px;"> <button class="btn prim" id="sc-add-btn">Add</button>';
+        g.appendChild(addDiv);
+        document.getElementById('sc-add-btn').addEventListener('click', addSC);
+        document.getElementById('sc-cmd-in').addEventListener('keydown', e => { if (e.key === 'Enter') addSC(); });
+      }
+
+      function addSC() {
+        const cmd = document.getElementById('sc-cmd-in').value.trim();
+        const secs = parseInt(document.getElementById('sc-int-in').value, 10);
+        if (!cmd || !secs) return;
+        window._scCmds = window._scCmds || [];
+        window._scCmds.push({ command: cmd, intervalMs: secs * 1000 });
+        renderScheduled(window._scCmds);
+        document.getElementById('sc-cmd-in').value = '';
+        markDirty();
+      }
+
+      function removeSC(i) {
+        window._scCmds.splice(i, 1);
+        renderScheduled(window._scCmds);
+        markDirty();
+      }
+
+      function markDirty() { document.getElementById('cfg-st').textContent = 'Unsaved'; }
+
+      // ----- Main load -----
+      // ----- Polling -----
+      let _loadTick = 0;
+
+      async function load() {
+        try {
+          const r = await fetch('/api/stats');
+          const s = await r.json();
+
+          const dot = document.getElementById('dot'), st = document.getElementById('sttxt');
+          if (s.connected) { dot.className = 'dot on'; st.textContent = 'Online'; st.style.color = 'var(--green)'; }
+          else if (s.connecting) { dot.className = 'dot ing'; st.textContent = 'Connecting'; st.style.color = 'var(--yellow)'; }
+          else { dot.className = 'dot off'; st.textContent = 'Offline'; st.style.color = 'var(--red)'; }
+
+          // Mobile bar
+          const md = document.getElementById('mob-dot'), ms = document.getElementById('mob-sttxt');
+          if (md) { md.className = 'dot' + (s.connected ? ' on' : s.connecting ? ' ing' : ' off');
+            ms.textContent = s.connected ? 'Online' : s.connecting ? 'Connecting' : 'Offline';
+            ms.style.color = s.connected ? 'var(--green)' : s.connecting ? 'var(--yellow)' : 'var(--red)'; }
+          const mu = document.getElementById('mob-user');
+          if (mu) mu.textContent = s.username||'-';
+          const mm = document.getElementById('mob-mana');
+          if (mm) mm.textContent = s.mana||'0';
+          if (s.joinedAt && document.getElementById('mob-up')) {
+            const ms2 = Date.now() - new Date(s.joinedAt).getTime();
+            const h2 = Math.floor(ms2/3600000), m2 = Math.floor((ms2%3600000)/60000);
+            document.getElementById('mob-up').textContent = h2 > 0 ? h2+'h '+m2+'m' : m2+'m';
+          }
+
+          document.getElementById('bu').textContent = s.username||'-';
+          document.getElementById('bh').textContent = s.host||'-';
+          if (s.joinedAt) {
+            const ms = Date.now() - new Date(s.joinedAt).getTime();
+            const h = Math.floor(ms/3600000), m = Math.floor((ms%3600000)/60000);
+            document.getElementById('upt').textContent = h > 0 ? h+'h '+m+'m' : m+'m';
+          } else document.getElementById('upt').textContent = '-';
+
+          document.getElementById('mana-v').textContent = s.mana;
+          document.getElementById('mc').textContent = s.manaCycles;
+          renderSpark(s.manaHistory);
+
+          document.getElementById('ty-s').textContent = s.typingAnswersSent+'/'+s.typingPromptsSeen;
+          document.getElementById('sc-s').textContent = s.scrambleAnswersSent+'/'+s.scramblePromptsSeen;
+          document.getElementById('wi-s').textContent = s.wins||0;
+          document.getElementById('to-s').textContent = s.totalAnswersSent;
+          document.getElementById('du-s').textContent = s.duplicatePromptsIgnored;
+          document.getElementById('un-s').textContent = s.unknownScrambles;
+
+          const lt = s.longTerm||{};
+          document.getElementById('lt-mana').textContent = lt.allTimeMana||0;
+          document.getElementById('lt-ans').textContent = lt.allTimeAnswersSent||0;
+          document.getElementById('lt-win').textContent = lt.allTimeWins||0;
+          document.getElementById('lt-ses').textContent = lt.allTimeSessions||0;
+          document.getElementById('lt-first').textContent = fmd(lt.firstStartAt);
+
+          if (s.lastError) {
+            document.getElementById('err-banner').classList.add('show');
+            document.getElementById('err-txt').textContent = s.lastError;
+          } else document.getElementById('err-banner').classList.remove('show');
+
+          if (s.microsoftAuth) {
+            document.getElementById('auth-banner').classList.add('show');
+            document.getElementById('auth-code').textContent = s.microsoftAuth.userCode;
+            document.getElementById('auth-link').textContent = s.microsoftAuth.verificationUri;
+            document.getElementById('auth-link').href = s.microsoftAuth.verificationUri;
+          } else document.getElementById('auth-banner').classList.remove('show');
+
+          renderLogs(s.logs);
+          renderChats(s.chats);
+          renderPL(s.onlinePlayers);
+
+          // Memory bar + chunks (throttled to every 10s to avoid layout thrash)
+          if (++_loadTick % 10 === 0) {
+            if (s.memory) {
+              const pct = Math.min(100, Math.round(s.memory.heapUsed / s.memory.heapTotal * 100));
+              document.getElementById('mem-fill').style.width = pct + '%';
+              document.getElementById('mem-lbl').textContent = s.memory.heapUsed + ' MB / ' + s.memory.heapTotal + ' MB';
+              document.getElementById('mem-rss').textContent = 'RSS ' + s.memory.rss + ' MB';
+            }
+            if (s.chunks) {
+              document.getElementById('chk-count').textContent = s.chunks.chunksTracked;
+              const chkChanged = document.getElementById('chk-changed');
+              if (s.chunks.changed > 0) {
+                chkChanged.textContent = s.chunks.changed + ' changed';
+                chkChanged.style.color = 'var(--yellow)';
+              } else {
+                chkChanged.textContent = '';
+              }
+            }
+          }
+        } catch(e) { console.error(e); }
+        try {
+          const sr = await fetch('/api/scoreboard');
+          renderSB(await sr.json());
+        } catch(e) { console.error(e); }
+        // Private mode indicator
+        try {
+          const pr = await fetch('/api/private-mode');
+          const pm = await pr.json();
+          const banner = document.getElementById('pm-banner');
+          if (pm.target) {
+            banner.textContent = 'Private Messaging ' + pm.target;
+            banner.style.display = 'block';
+          } else {
+            banner.style.display = 'none';
+          }
+        } catch(e) {}
+        // Config (less frequent)
+        const cfgEl = document.getElementById('cfg-f');
+        if (!cfgEl || !cfgEl.children.length) {
+          try {
+            const cr = await fetch('/api/config');
+            const cfg = await cr.json();
+            renderConfig(cfg);
+            renderAnsweringToggle(cfg.answeringEnabled !== false);
+          } catch(e) { console.error(e); }
+        }
+      }
+
+      function renderAnsweringToggle(on) {
+        const btn = document.getElementById('atgl');
+        if (!btn) return;
+        btn.textContent = on ? 'ON' : 'OFF';
+        btn.className = 'btn-sm on';
+        if (!on) btn.className = 'btn-sm off';
+      }
+
+      document.addEventListener('click', e => {
+        if (e.target.id === 'atgl') {
+          const btn = e.target;
+          const newState = btn.textContent === 'OFF';
+          btn.textContent = newState ? 'ON' : 'OFF';
+          btn.className = 'btn-sm on';
+          if (!newState) btn.className = 'btn-sm off';
+          fetch('/api/config', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ answeringEnabled: newState }),
+          }).catch(() => {});
+        }
+        if (e.target.id === 'mem-gc') {
+          const btn = e.target;
+          btn.textContent = '...';
+          btn.disabled = true;
+          fetch('/api/gc', { method: 'POST' })
+            .then(r => r.json())
+            .then(d => { btn.textContent = 'GC'; btn.disabled = false; if (d.heapUsed) { load(); } })
+            .catch(() => { btn.textContent = 'GC'; btn.disabled = false; });
+        }
+      });
+
+      load();
+
+      // ----- Mobile drawer -----
+      const sidebarDrawer = document.getElementById('sidebar-drawer');
+      const sidebarOverlay = document.getElementById('sidebar-overlay');
+      function openSidebar() { sidebarDrawer.classList.add('show'); sidebarOverlay.classList.add('show'); document.body.style.overflow = 'hidden'; }
+      function closeSidebar() { sidebarDrawer.classList.remove('show'); sidebarOverlay.classList.remove('show'); document.body.style.overflow = ''; }
+      document.getElementById('sidebar-toggle').addEventListener('click', openSidebar);
+      document.getElementById('mob-menu-btn').addEventListener('click', openSidebar);
+      document.getElementById('sidebar-close').addEventListener('click', closeSidebar);
+      sidebarOverlay.addEventListener('click', closeSidebar);
+
+      // Default to chat on mobile
+      if (window.innerWidth < 600) switchTab('panel-chat');
+
+      // Scroll chat input into view on focus (mobile keyboard fix)
+      msgIn.addEventListener('focus', () => {
+        setTimeout(() => msgIn.scrollIntoView({ block: 'center', behavior: 'smooth' }), 300);
+      });
+
+      setInterval(load, 1000);
+    </script>
+  </body>
+</html>

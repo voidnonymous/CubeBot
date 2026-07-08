@@ -1,0 +1,3785 @@
+air
+stone
+granite
+polished granite
+polishedgranite
+polished
+diorite
+polished diorite
+polisheddiorite
+andesite
+polished andesite
+polishedandesite
+deepslate
+cobbled deepslate
+cobbleddeepslate
+cobbled
+polished deepslate
+polisheddeepslate
+calcite
+tuff
+tuff slab
+tuffslab
+slab
+tuff stairs
+tuffstairs
+tuff stair
+tuffstair
+stairs
+stair
+tuff wall
+tuffwall
+wall
+chiseled tuff
+chiseledtuff
+chiseled
+polished tuff
+polishedtuff
+polished tuff slab
+polishedtuffslab
+polished tuff stairs
+polishedtuffstairs
+polished tuff stair
+polishedtuffstair
+polished tuff wall
+polishedtuffwall
+tuff bricks
+tuffbricks
+tuff brick
+tuffbrick
+bricks
+brick
+tuff brick slab
+tuffbrickslab
+tuff brick stairs
+tuffbrickstairs
+tuff brick stair
+tuffbrickstair
+tuff brick wall
+tuffbrickwall
+chiseled tuff bricks
+chiseledtuffbricks
+chiseled tuff brick
+chiseledtuffbrick
+dripstone block
+dripstoneblock
+dripstone
+block
+grass block
+grassblock
+grass
+gras
+dirt
+coarse dirt
+coarsedirt
+coarse
+podzol
+rooted dirt
+rooteddirt
+rooted
+mud
+crimson nylium
+crimsonnylium
+crimson
+nylium
+warped nylium
+warpednylium
+warped
+cobblestone
+oak planks
+oakplanks
+oak plank
+oakplank
+oak
+planks
+plank
+spruce planks
+spruceplanks
+spruce plank
+spruceplank
+spruce
+birch planks
+birchplanks
+birch plank
+birchplank
+birch
+jungle planks
+jungleplanks
+jungle plank
+jungleplank
+jungle
+acacia planks
+acaciaplanks
+acacia plank
+acaciaplank
+acacia
+cherry planks
+cherryplanks
+cherry plank
+cherryplank
+cherry
+dark oak planks
+darkoakplanks
+dark oak plank
+darkoakplank
+dark
+mangrove planks
+mangroveplanks
+mangrove plank
+mangroveplank
+mangrove
+bamboo planks
+bambooplanks
+bamboo plank
+bambooplank
+bamboo
+crimson planks
+crimsonplanks
+crimson plank
+crimsonplank
+warped planks
+warpedplanks
+warped plank
+warpedplank
+bamboo mosaic
+bamboomosaic
+mosaic
+oak sapling
+oaksapling
+sapling
+spruce sapling
+sprucesapling
+birch sapling
+birchsapling
+jungle sapling
+junglesapling
+acacia sapling
+acaciasapling
+cherry sapling
+cherrysapling
+dark oak sapling
+darkoaksapling
+mangrove propagule
+mangrovepropagule
+propagule
+bedrock
+sand
+suspicious sand
+suspicioussand
+suspicious
+suspiciou
+suspicious gravel
+suspiciousgravel
+gravel
+red sand
+redsand
+red
+coal ore
+coalore
+coal
+ore
+deepslate coal ore
+deepslatecoalore
+iron ore
+ironore
+iron
+deepslate iron ore
+deepslateironore
+copper ore
+copperore
+copper
+deepslate copper ore
+deepslatecopperore
+gold ore
+goldore
+gold
+deepslate gold ore
+deepslategoldore
+redstone ore
+redstoneore
+redstone
+deepslate redstone ore
+deepslateredstoneore
+emerald ore
+emeraldore
+emerald
+deepslate emerald ore
+deepslateemeraldore
+lapis lazuli ore
+lapislazuliore
+lapis ore
+lapisore
+lapis
+lapi
+deepslate lapis lazuli ore
+deepslatelapislazuliore
+deepslate lapis ore
+deepslatelapisore
+diamond ore
+diamondore
+diamond
+deepslate diamond ore
+deepslatediamondore
+nether gold ore
+nethergoldore
+nether
+nether quartz ore
+netherquartzore
+quartz
+ancient debris
+ancientdebris
+ancient debri
+ancientdebri
+ancient
+debris
+debri
+block of coal
+blockofcoal
+coal block
+coalblock
+block of raw iron
+blockofrawiron
+raw iron block
+rawironblock
+raw
+block of raw copper
+blockofrawcopper
+raw copper block
+rawcopperblock
+block of raw gold
+blockofrawgold
+raw gold block
+rawgoldblock
+heavy core
+heavycore
+heavy
+core
+block of amethyst
+blockofamethyst
+amethyst block
+amethystblock
+amethyst
+budding amethyst
+buddingamethyst
+budding
+block of iron
+blockofiron
+iron block
+ironblock
+block of copper
+blockofcopper
+copper block
+copperblock
+block of gold
+blockofgold
+gold block
+goldblock
+block of diamond
+blockofdiamond
+diamond block
+diamondblock
+block of netherite
+blockofnetherite
+netherite block
+netheriteblock
+netherite
+exposed copper
+exposedcopper
+exposed
+weathered copper
+weatheredcopper
+weathered
+oxidized copper
+oxidizedcopper
+oxidized
+chiseled copper
+chiseledcopper
+exposed chiseled copper
+exposedchiseledcopper
+weathered chiseled copper
+weatheredchiseledcopper
+oxidized chiseled copper
+oxidizedchiseledcopper
+cut copper
+cutcopper
+cut
+exposed cut copper
+exposedcutcopper
+weathered cut copper
+weatheredcutcopper
+oxidized cut copper
+oxidizedcutcopper
+cut copper stairs
+cutcopperstairs
+cut copper stair
+cutcopperstair
+exposed cut copper stairs
+exposedcutcopperstairs
+exposed cut copper stair
+exposedcutcopperstair
+weathered cut copper stairs
+weatheredcutcopperstairs
+weathered cut copper stair
+weatheredcutcopperstair
+oxidized cut copper stairs
+oxidizedcutcopperstairs
+oxidized cut copper stair
+oxidizedcutcopperstair
+cut copper slab
+cutcopperslab
+exposed cut copper slab
+exposedcutcopperslab
+weathered cut copper slab
+weatheredcutcopperslab
+oxidized cut copper slab
+oxidizedcutcopperslab
+waxed block of copper
+waxedblockofcopper
+waxed copper block
+waxedcopperblock
+waxed
+waxed exposed copper
+waxedexposedcopper
+waxed weathered copper
+waxedweatheredcopper
+waxed oxidized copper
+waxedoxidizedcopper
+waxed chiseled copper
+waxedchiseledcopper
+waxed exposed chiseled copper
+waxedexposedchiseledcopper
+waxed weathered chiseled copper
+waxedweatheredchiseledcopper
+waxed oxidized chiseled copper
+waxedoxidizedchiseledcopper
+waxed cut copper
+waxedcutcopper
+waxed exposed cut copper
+waxedexposedcutcopper
+waxed weathered cut copper
+waxedweatheredcutcopper
+waxed oxidized cut copper
+waxedoxidizedcutcopper
+waxed cut copper stairs
+waxedcutcopperstairs
+waxed cut copper stair
+waxedcutcopperstair
+waxed exposed cut copper stairs
+waxedexposedcutcopperstairs
+waxed exposed cut copper stair
+waxedexposedcutcopperstair
+waxed weathered cut copper stairs
+waxedweatheredcutcopperstairs
+waxed weathered cut copper stair
+waxedweatheredcutcopperstair
+waxed oxidized cut copper stairs
+waxedoxidizedcutcopperstairs
+waxed oxidized cut copper stair
+waxedoxidizedcutcopperstair
+waxed cut copper slab
+waxedcutcopperslab
+waxed exposed cut copper slab
+waxedexposedcutcopperslab
+waxed weathered cut copper slab
+waxedweatheredcutcopperslab
+waxed oxidized cut copper slab
+waxedoxidizedcutcopperslab
+oak log
+oaklog
+log
+spruce log
+sprucelog
+birch log
+birchlog
+jungle log
+junglelog
+acacia log
+acacialog
+cherry log
+cherrylog
+dark oak log
+darkoaklog
+mangrove log
+mangrovelog
+mangrove roots
+mangroveroots
+mangrove root
+mangroveroot
+roots
+root
+muddy mangrove roots
+muddymangroveroots
+muddy mangrove root
+muddymangroveroot
+muddy
+crimson stem
+crimsonstem
+stem
+warped stem
+warpedstem
+block of bamboo
+blockofbamboo
+bamboo block
+bambooblock
+stripped oak log
+strippedoaklog
+stripped
+stripped spruce log
+strippedsprucelog
+stripped birch log
+strippedbirchlog
+stripped jungle log
+strippedjunglelog
+stripped acacia log
+strippedacacialog
+stripped cherry log
+strippedcherrylog
+stripped dark oak log
+strippeddarkoaklog
+stripped mangrove log
+strippedmangrovelog
+stripped crimson stem
+strippedcrimsonstem
+stripped warped stem
+strippedwarpedstem
+stripped oak wood
+strippedoakwood
+wood
+stripped spruce wood
+strippedsprucewood
+stripped birch wood
+strippedbirchwood
+stripped jungle wood
+strippedjunglewood
+stripped acacia wood
+strippedacaciawood
+stripped cherry wood
+strippedcherrywood
+stripped dark oak wood
+strippeddarkoakwood
+stripped mangrove wood
+strippedmangrovewood
+stripped crimson hyphae
+strippedcrimsonhyphae
+hyphae
+stripped warped hyphae
+strippedwarpedhyphae
+block of stripped bamboo
+blockofstrippedbamboo
+stripped bamboo block
+strippedbambooblock
+oak wood
+oakwood
+spruce wood
+sprucewood
+birch wood
+birchwood
+jungle wood
+junglewood
+acacia wood
+acaciawood
+cherry wood
+cherrywood
+dark oak wood
+darkoakwood
+mangrove wood
+mangrovewood
+crimson hyphae
+crimsonhyphae
+warped hyphae
+warpedhyphae
+oak leaves
+oakleaves
+oak leave
+oakleave
+leaves
+leave
+spruce leaves
+spruceleaves
+spruce leave
+spruceleave
+birch leaves
+birchleaves
+birch leave
+birchleave
+jungle leaves
+jungleleaves
+jungle leave
+jungleleave
+acacia leaves
+acacialeaves
+acacia leave
+acacialeave
+cherry leaves
+cherryleaves
+cherry leave
+cherryleave
+dark oak leaves
+darkoakleaves
+dark oak leave
+darkoakleave
+mangrove leaves
+mangroveleaves
+mangrove leave
+mangroveleave
+azalea leaves
+azalealeaves
+azalea leave
+azalealeave
+azalea
+flowering azalea leaves
+floweringazalealeaves
+flowering azalea leave
+floweringazalealeave
+flowering
+sponge
+wet sponge
+wetsponge
+wet
+glass
+glas
+tinted glass
+tintedglass
+tinted glas
+tintedglas
+tinted
+block of lapis lazuli
+blockoflapislazuli
+lapis block
+lapisblock
+sandstone
+chiseled sandstone
+chiseledsandstone
+cut sandstone
+cutsandstone
+cobweb
+short grass
+shortgrass
+short gras
+shortgras
+short
+fern
+flowering azalea
+floweringazalea
+dead bush
+deadbush
+dead
+bush
+seagrass
+seagras
+sea pickle
+seapickle
+sea
+pickle
+white wool
+whitewool
+white
+wool
+orange wool
+orangewool
+orange
+magenta wool
+magentawool
+magenta
+light blue wool
+lightbluewool
+light
+blue
+yellow wool
+yellowwool
+yellow
+lime wool
+limewool
+lime
+pink wool
+pinkwool
+pink
+gray wool
+graywool
+gray
+light gray wool
+lightgraywool
+cyan wool
+cyanwool
+cyan
+purple wool
+purplewool
+purple
+blue wool
+bluewool
+brown wool
+brownwool
+brown
+green wool
+greenwool
+green
+red wool
+redwool
+black wool
+blackwool
+black
+dandelion
+poppy
+blue orchid
+blueorchid
+orchid
+allium
+azure bluet
+azurebluet
+azure
+bluet
+red tulip
+redtulip
+tulip
+orange tulip
+orangetulip
+white tulip
+whitetulip
+pink tulip
+pinktulip
+oxeye daisy
+oxeyedaisy
+oxeye
+daisy
+cornflower
+lily of the valley
+lilyofthevalley
+lily
+of
+the
+valley
+wither rose
+witherrose
+wither
+rose
+torchflower
+pitcher plant
+pitcherplant
+pitcher
+plant
+spore blossom
+sporeblossom
+spore
+blossom
+brown mushroom
+brownmushroom
+mushroom
+red mushroom
+redmushroom
+crimson fungus
+crimsonfungus
+crimson fungu
+crimsonfungu
+fungus
+fungu
+warped fungus
+warpedfungus
+warped fungu
+warpedfungu
+crimson roots
+crimsonroots
+crimson root
+crimsonroot
+warped roots
+warpedroots
+warped root
+warpedroot
+nether sprouts
+nethersprouts
+nether sprout
+nethersprout
+sprouts
+sprout
+weeping vines
+weepingvines
+weeping vine
+weepingvine
+weeping
+vines
+vine
+twisting vines
+twistingvines
+twisting vine
+twistingvine
+twisting
+sugar cane
+sugarcane
+sugar
+cane
+kelp
+moss carpet
+mosscarpet
+moss
+mos
+carpet
+pink petals
+pinkpetals
+pink petal
+pinkpetal
+petals
+petal
+moss block
+mossblock
+hanging roots
+hangingroots
+hanging root
+hangingroot
+hanging
+big dripleaf
+bigdripleaf
+big
+dripleaf
+small dripleaf
+smalldripleaf
+small
+oak slab
+oakslab
+spruce slab
+spruceslab
+birch slab
+birchslab
+jungle slab
+jungleslab
+acacia slab
+acaciaslab
+cherry slab
+cherryslab
+dark oak slab
+darkoakslab
+mangrove slab
+mangroveslab
+bamboo slab
+bambooslab
+bamboo mosaic slab
+bamboomosaicslab
+crimson slab
+crimsonslab
+warped slab
+warpedslab
+stone slab
+stoneslab
+smooth stone slab
+smoothstoneslab
+smooth
+sandstone slab
+sandstoneslab
+cut sandstone slab
+cutsandstoneslab
+petrified oak slab
+petrifiedoakslab
+petrified
+cobblestone slab
+cobblestoneslab
+brick slab
+brickslab
+stone brick slab
+stonebrickslab
+mud brick slab
+mudbrickslab
+nether brick slab
+netherbrickslab
+quartz slab
+quartzslab
+red sandstone slab
+redsandstoneslab
+cut red sandstone slab
+cutredsandstoneslab
+purpur slab
+purpurslab
+purpur
+prismarine slab
+prismarineslab
+prismarine
+prismarine brick slab
+prismarinebrickslab
+dark prismarine slab
+darkprismarineslab
+smooth quartz block
+smoothquartzblock
+smooth quartz
+smoothquartz
+smooth red sandstone
+smoothredsandstone
+smooth sandstone
+smoothsandstone
+smooth stone
+smoothstone
+bookshelf
+chiseled bookshelf
+chiseledbookshelf
+decorated pot
+decoratedpot
+decorated
+pot
+mossy cobblestone
+mossycobblestone
+mossy
+obsidian
+torch
+end rod
+endrod
+end
+rod
+chorus plant
+chorusplant
+chorus
+choru
+chorus flower
+chorusflower
+flower
+purpur block
+purpurblock
+purpur pillar
+purpurpillar
+pillar
+purpur stairs
+purpurstairs
+purpur stair
+purpurstair
+monster spawner
+monsterspawner
+spawner
+chest
+crafting table
+craftingtable
+crafting
+table
+farmland
+furnace
+ladder
+cobblestone stairs
+cobblestonestairs
+cobblestone stair
+cobblestonestair
+snow
+ice
+snow block
+snowblock
+cactus
+cactu
+clay
+jukebox
+oak fence
+oakfence
+fence
+spruce fence
+sprucefence
+birch fence
+birchfence
+jungle fence
+junglefence
+acacia fence
+acaciafence
+cherry fence
+cherryfence
+dark oak fence
+darkoakfence
+mangrove fence
+mangrovefence
+bamboo fence
+bamboofence
+crimson fence
+crimsonfence
+warped fence
+warpedfence
+pumpkin
+carved pumpkin
+carvedpumpkin
+carved
+jack o'lantern
+jacko'lantern
+jack o lantern
+jackolantern
+jack
+lantern
+netherrack
+soul sand
+soulsand
+soul
+soul soil
+soulsoil
+soil
+basalt
+polished basalt
+polishedbasalt
+smooth basalt
+smoothbasalt
+soul torch
+soultorch
+glowstone
+infested stone
+infestedstone
+infested
+infested cobblestone
+infestedcobblestone
+infested stone bricks
+infestedstonebricks
+infested stone brick
+infestedstonebrick
+infested mossy stone bricks
+infestedmossystonebricks
+infested mossy stone brick
+infestedmossystonebrick
+infested cracked stone bricks
+infestedcrackedstonebricks
+infested cracked stone brick
+infestedcrackedstonebrick
+cracked
+infested chiseled stone bricks
+infestedchiseledstonebricks
+infested chiseled stone brick
+infestedchiseledstonebrick
+infested deepslate
+infesteddeepslate
+stone bricks
+stonebricks
+stone brick
+stonebrick
+mossy stone bricks
+mossystonebricks
+mossy stone brick
+mossystonebrick
+cracked stone bricks
+crackedstonebricks
+cracked stone brick
+crackedstonebrick
+chiseled stone bricks
+chiseledstonebricks
+chiseled stone brick
+chiseledstonebrick
+packed mud
+packedmud
+packed
+mud bricks
+mudbricks
+mud brick
+mudbrick
+deepslate bricks
+deepslatebricks
+deepslate brick
+deepslatebrick
+cracked deepslate bricks
+crackeddeepslatebricks
+cracked deepslate brick
+crackeddeepslatebrick
+deepslate tiles
+deepslatetiles
+deepslate tile
+deepslatetile
+tiles
+tile
+cracked deepslate tiles
+crackeddeepslatetiles
+cracked deepslate tile
+crackeddeepslatetile
+chiseled deepslate
+chiseleddeepslate
+reinforced deepslate
+reinforceddeepslate
+reinforced
+brown mushroom block
+brownmushroomblock
+red mushroom block
+redmushroomblock
+mushroom stem
+mushroomstem
+iron bars
+ironbars
+iron bar
+ironbar
+bars
+bar
+chain
+glass pane
+glasspane
+pane
+melon
+glow lichen
+glowlichen
+glow
+lichen
+brick stairs
+brickstairs
+brick stair
+brickstair
+stone brick stairs
+stonebrickstairs
+stone brick stair
+stonebrickstair
+mud brick stairs
+mudbrickstairs
+mud brick stair
+mudbrickstair
+mycelium
+lily pad
+lilypad
+pad
+nether bricks
+netherbricks
+nether brick
+netherbrick
+cracked nether bricks
+crackednetherbricks
+cracked nether brick
+crackednetherbrick
+chiseled nether bricks
+chiselednetherbricks
+chiseled nether brick
+chiselednetherbrick
+nether brick fence
+netherbrickfence
+nether brick stairs
+netherbrickstairs
+nether brick stair
+netherbrickstair
+sculk
+sculk vein
+sculkvein
+vein
+sculk catalyst
+sculkcatalyst
+catalyst
+sculk shrieker
+sculkshrieker
+shrieker
+enchanting table
+enchantingtable
+enchanting
+end portal frame
+endportalframe
+portal
+frame
+end stone
+endstone
+end stone bricks
+endstonebricks
+end stone brick
+endstonebrick
+dragon egg
+dragonegg
+dragon
+egg
+sandstone stairs
+sandstonestairs
+sandstone stair
+sandstonestair
+ender chest
+enderchest
+ender
+block of emerald
+blockofemerald
+emerald block
+emeraldblock
+oak stairs
+oakstairs
+oak stair
+oakstair
+spruce stairs
+sprucestairs
+spruce stair
+sprucestair
+birch stairs
+birchstairs
+birch stair
+birchstair
+jungle stairs
+junglestairs
+jungle stair
+junglestair
+acacia stairs
+acaciastairs
+acacia stair
+acaciastair
+cherry stairs
+cherrystairs
+cherry stair
+cherrystair
+dark oak stairs
+darkoakstairs
+dark oak stair
+darkoakstair
+mangrove stairs
+mangrovestairs
+mangrove stair
+mangrovestair
+bamboo stairs
+bamboostairs
+bamboo stair
+bamboostair
+bamboo mosaic stairs
+bamboomosaicstairs
+bamboo mosaic stair
+bamboomosaicstair
+crimson stairs
+crimsonstairs
+crimson stair
+crimsonstair
+warped stairs
+warpedstairs
+warped stair
+warpedstair
+command block
+commandblock
+command
+beacon
+cobblestone wall
+cobblestonewall
+mossy cobblestone wall
+mossycobblestonewall
+brick wall
+brickwall
+prismarine wall
+prismarinewall
+red sandstone wall
+redsandstonewall
+mossy stone brick wall
+mossystonebrickwall
+granite wall
+granitewall
+stone brick wall
+stonebrickwall
+mud brick wall
+mudbrickwall
+nether brick wall
+netherbrickwall
+andesite wall
+andesitewall
+red nether brick wall
+rednetherbrickwall
+sandstone wall
+sandstonewall
+end stone brick wall
+endstonebrickwall
+diorite wall
+dioritewall
+blackstone wall
+blackstonewall
+blackstone
+polished blackstone wall
+polishedblackstonewall
+polished blackstone brick wall
+polishedblackstonebrickwall
+cobbled deepslate wall
+cobbleddeepslatewall
+polished deepslate wall
+polisheddeepslatewall
+deepslate brick wall
+deepslatebrickwall
+deepslate tile wall
+deepslatetilewall
+anvil
+chipped anvil
+chippedanvil
+chipped
+damaged anvil
+damagedanvil
+damaged
+chiseled quartz block
+chiseledquartzblock
+block of quartz
+blockofquartz
+quartz block
+quartzblock
+quartz bricks
+quartzbricks
+quartz brick
+quartzbrick
+quartz pillar
+quartzpillar
+quartz stairs
+quartzstairs
+quartz stair
+quartzstair
+white terracotta
+whiteterracotta
+terracotta
+orange terracotta
+orangeterracotta
+magenta terracotta
+magentaterracotta
+light blue terracotta
+lightblueterracotta
+yellow terracotta
+yellowterracotta
+lime terracotta
+limeterracotta
+pink terracotta
+pinkterracotta
+gray terracotta
+grayterracotta
+light gray terracotta
+lightgrayterracotta
+cyan terracotta
+cyanterracotta
+purple terracotta
+purpleterracotta
+blue terracotta
+blueterracotta
+brown terracotta
+brownterracotta
+green terracotta
+greenterracotta
+red terracotta
+redterracotta
+black terracotta
+blackterracotta
+barrier
+hay bale
+haybale
+hay block
+hayblock
+hay
+white carpet
+whitecarpet
+orange carpet
+orangecarpet
+magenta carpet
+magentacarpet
+light blue carpet
+lightbluecarpet
+yellow carpet
+yellowcarpet
+lime carpet
+limecarpet
+pink carpet
+pinkcarpet
+gray carpet
+graycarpet
+light gray carpet
+lightgraycarpet
+cyan carpet
+cyancarpet
+purple carpet
+purplecarpet
+blue carpet
+bluecarpet
+brown carpet
+browncarpet
+green carpet
+greencarpet
+red carpet
+redcarpet
+black carpet
+blackcarpet
+packed ice
+packedice
+dirt path
+dirtpath
+path
+sunflower
+lilac
+rose bush
+rosebush
+peony
+tall grass
+tallgrass
+tall gras
+tallgras
+tall
+large fern
+largefern
+large
+white stained glass
+whitestainedglass
+white stained glas
+whitestainedglas
+stained
+orange stained glass
+orangestainedglass
+orange stained glas
+orangestainedglas
+magenta stained glass
+magentastainedglass
+magenta stained glas
+magentastainedglas
+light blue stained glass
+lightbluestainedglass
+light blue stained glas
+lightbluestainedglas
+yellow stained glass
+yellowstainedglass
+yellow stained glas
+yellowstainedglas
+lime stained glass
+limestainedglass
+lime stained glas
+limestainedglas
+pink stained glass
+pinkstainedglass
+pink stained glas
+pinkstainedglas
+gray stained glass
+graystainedglass
+gray stained glas
+graystainedglas
+light gray stained glass
+lightgraystainedglass
+light gray stained glas
+lightgraystainedglas
+cyan stained glass
+cyanstainedglass
+cyan stained glas
+cyanstainedglas
+purple stained glass
+purplestainedglass
+purple stained glas
+purplestainedglas
+blue stained glass
+bluestainedglass
+blue stained glas
+bluestainedglas
+brown stained glass
+brownstainedglass
+brown stained glas
+brownstainedglas
+green stained glass
+greenstainedglass
+green stained glas
+greenstainedglas
+red stained glass
+redstainedglass
+red stained glas
+redstainedglas
+black stained glass
+blackstainedglass
+black stained glas
+blackstainedglas
+white stained glass pane
+whitestainedglasspane
+orange stained glass pane
+orangestainedglasspane
+magenta stained glass pane
+magentastainedglasspane
+light blue stained glass pane
+lightbluestainedglasspane
+yellow stained glass pane
+yellowstainedglasspane
+lime stained glass pane
+limestainedglasspane
+pink stained glass pane
+pinkstainedglasspane
+gray stained glass pane
+graystainedglasspane
+light gray stained glass pane
+lightgraystainedglasspane
+cyan stained glass pane
+cyanstainedglasspane
+purple stained glass pane
+purplestainedglasspane
+blue stained glass pane
+bluestainedglasspane
+brown stained glass pane
+brownstainedglasspane
+green stained glass pane
+greenstainedglasspane
+red stained glass pane
+redstainedglasspane
+black stained glass pane
+blackstainedglasspane
+prismarine bricks
+prismarinebricks
+prismarine brick
+prismarinebrick
+dark prismarine
+darkprismarine
+prismarine stairs
+prismarinestairs
+prismarine stair
+prismarinestair
+prismarine brick stairs
+prismarinebrickstairs
+prismarine brick stair
+prismarinebrickstair
+dark prismarine stairs
+darkprismarinestairs
+dark prismarine stair
+darkprismarinestair
+sea lantern
+sealantern
+red sandstone
+redsandstone
+chiseled red sandstone
+chiseledredsandstone
+cut red sandstone
+cutredsandstone
+red sandstone stairs
+redsandstonestairs
+red sandstone stair
+redsandstonestair
+repeating command block
+repeatingcommandblock
+repeating
+chain command block
+chaincommandblock
+magma block
+magmablock
+magma
+nether wart block
+netherwartblock
+wart
+warped wart block
+warpedwartblock
+red nether bricks
+rednetherbricks
+red nether brick
+rednetherbrick
+bone block
+boneblock
+bone
+structure void
+structurevoid
+structure
+void
+shulker box
+shulkerbox
+shulker
+box
+white shulker box
+whiteshulkerbox
+orange shulker box
+orangeshulkerbox
+magenta shulker box
+magentashulkerbox
+light blue shulker box
+lightblueshulkerbox
+yellow shulker box
+yellowshulkerbox
+lime shulker box
+limeshulkerbox
+pink shulker box
+pinkshulkerbox
+gray shulker box
+grayshulkerbox
+light gray shulker box
+lightgrayshulkerbox
+cyan shulker box
+cyanshulkerbox
+purple shulker box
+purpleshulkerbox
+blue shulker box
+blueshulkerbox
+brown shulker box
+brownshulkerbox
+green shulker box
+greenshulkerbox
+red shulker box
+redshulkerbox
+black shulker box
+blackshulkerbox
+white glazed terracotta
+whiteglazedterracotta
+glazed
+orange glazed terracotta
+orangeglazedterracotta
+magenta glazed terracotta
+magentaglazedterracotta
+light blue glazed terracotta
+lightblueglazedterracotta
+yellow glazed terracotta
+yellowglazedterracotta
+lime glazed terracotta
+limeglazedterracotta
+pink glazed terracotta
+pinkglazedterracotta
+gray glazed terracotta
+grayglazedterracotta
+light gray glazed terracotta
+lightgrayglazedterracotta
+cyan glazed terracotta
+cyanglazedterracotta
+purple glazed terracotta
+purpleglazedterracotta
+blue glazed terracotta
+blueglazedterracotta
+brown glazed terracotta
+brownglazedterracotta
+green glazed terracotta
+greenglazedterracotta
+red glazed terracotta
+redglazedterracotta
+black glazed terracotta
+blackglazedterracotta
+white concrete
+whiteconcrete
+concrete
+orange concrete
+orangeconcrete
+magenta concrete
+magentaconcrete
+light blue concrete
+lightblueconcrete
+yellow concrete
+yellowconcrete
+lime concrete
+limeconcrete
+pink concrete
+pinkconcrete
+gray concrete
+grayconcrete
+light gray concrete
+lightgrayconcrete
+cyan concrete
+cyanconcrete
+purple concrete
+purpleconcrete
+blue concrete
+blueconcrete
+brown concrete
+brownconcrete
+green concrete
+greenconcrete
+red concrete
+redconcrete
+black concrete
+blackconcrete
+white concrete powder
+whiteconcretepowder
+powder
+orange concrete powder
+orangeconcretepowder
+magenta concrete powder
+magentaconcretepowder
+light blue concrete powder
+lightblueconcretepowder
+yellow concrete powder
+yellowconcretepowder
+lime concrete powder
+limeconcretepowder
+pink concrete powder
+pinkconcretepowder
+gray concrete powder
+grayconcretepowder
+light gray concrete powder
+lightgrayconcretepowder
+cyan concrete powder
+cyanconcretepowder
+purple concrete powder
+purpleconcretepowder
+blue concrete powder
+blueconcretepowder
+brown concrete powder
+brownconcretepowder
+green concrete powder
+greenconcretepowder
+red concrete powder
+redconcretepowder
+black concrete powder
+blackconcretepowder
+turtle egg
+turtleegg
+turtle
+sniffer egg
+snifferegg
+sniffer
+dead tube coral block
+deadtubecoralblock
+tube
+coral
+dead brain coral block
+deadbraincoralblock
+brain
+dead bubble coral block
+deadbubblecoralblock
+bubble
+dead fire coral block
+deadfirecoralblock
+fire
+dead horn coral block
+deadhorncoralblock
+horn
+tube coral block
+tubecoralblock
+brain coral block
+braincoralblock
+bubble coral block
+bubblecoralblock
+fire coral block
+firecoralblock
+horn coral block
+horncoralblock
+tube coral
+tubecoral
+brain coral
+braincoral
+bubble coral
+bubblecoral
+fire coral
+firecoral
+horn coral
+horncoral
+dead brain coral
+deadbraincoral
+dead bubble coral
+deadbubblecoral
+dead fire coral
+deadfirecoral
+dead horn coral
+deadhorncoral
+dead tube coral
+deadtubecoral
+tube coral fan
+tubecoralfan
+fan
+brain coral fan
+braincoralfan
+bubble coral fan
+bubblecoralfan
+fire coral fan
+firecoralfan
+horn coral fan
+horncoralfan
+dead tube coral fan
+deadtubecoralfan
+dead brain coral fan
+deadbraincoralfan
+dead bubble coral fan
+deadbubblecoralfan
+dead fire coral fan
+deadfirecoralfan
+dead horn coral fan
+deadhorncoralfan
+blue ice
+blueice
+conduit
+polished granite stairs
+polishedgranitestairs
+polished granite stair
+polishedgranitestair
+smooth red sandstone stairs
+smoothredsandstonestairs
+smooth red sandstone stair
+smoothredsandstonestair
+mossy stone brick stairs
+mossystonebrickstairs
+mossy stone brick stair
+mossystonebrickstair
+polished diorite stairs
+polisheddioritestairs
+polished diorite stair
+polisheddioritestair
+mossy cobblestone stairs
+mossycobblestonestairs
+mossy cobblestone stair
+mossycobblestonestair
+end stone brick stairs
+endstonebrickstairs
+end stone brick stair
+endstonebrickstair
+stone stairs
+stonestairs
+stone stair
+stonestair
+smooth sandstone stairs
+smoothsandstonestairs
+smooth sandstone stair
+smoothsandstonestair
+smooth quartz stairs
+smoothquartzstairs
+smooth quartz stair
+smoothquartzstair
+granite stairs
+granitestairs
+granite stair
+granitestair
+andesite stairs
+andesitestairs
+andesite stair
+andesitestair
+red nether brick stairs
+rednetherbrickstairs
+red nether brick stair
+rednetherbrickstair
+polished andesite stairs
+polishedandesitestairs
+polished andesite stair
+polishedandesitestair
+diorite stairs
+dioritestairs
+diorite stair
+dioritestair
+cobbled deepslate stairs
+cobbleddeepslatestairs
+cobbled deepslate stair
+cobbleddeepslatestair
+polished deepslate stairs
+polisheddeepslatestairs
+polished deepslate stair
+polisheddeepslatestair
+deepslate brick stairs
+deepslatebrickstairs
+deepslate brick stair
+deepslatebrickstair
+deepslate tile stairs
+deepslatetilestairs
+deepslate tile stair
+deepslatetilestair
+polished granite slab
+polishedgraniteslab
+smooth red sandstone slab
+smoothredsandstoneslab
+mossy stone brick slab
+mossystonebrickslab
+polished diorite slab
+polisheddioriteslab
+mossy cobblestone slab
+mossycobblestoneslab
+end stone brick slab
+endstonebrickslab
+smooth sandstone slab
+smoothsandstoneslab
+smooth quartz slab
+smoothquartzslab
+granite slab
+graniteslab
+andesite slab
+andesiteslab
+red nether brick slab
+rednetherbrickslab
+polished andesite slab
+polishedandesiteslab
+diorite slab
+dioriteslab
+cobbled deepslate slab
+cobbleddeepslateslab
+polished deepslate slab
+polisheddeepslateslab
+deepslate brick slab
+deepslatebrickslab
+deepslate tile slab
+deepslatetileslab
+scaffolding
+redstone dust
+redstonedust
+redstone torch
+redstonetorch
+block of redstone
+blockofredstone
+redstone block
+redstoneblock
+redstone repeater
+redstonerepeater
+repeater
+redstone comparator
+redstonecomparator
+comparator
+piston
+sticky piston
+stickypiston
+sticky
+slime block
+slimeblock
+slime
+honey block
+honeyblock
+honey
+observer
+hopper
+dispenser
+dropper
+lectern
+target
+lever
+lightning rod
+lightningrod
+lightning
+daylight detector
+daylightdetector
+daylight
+detector
+sculk sensor
+sculksensor
+sensor
+calibrated sculk sensor
+calibratedsculksensor
+calibrated
+tripwire hook
+tripwirehook
+tripwire
+hook
+trapped chest
+trappedchest
+trapped
+tnt
+redstone lamp
+redstonelamp
+lamp
+note block
+noteblock
+note
+stone button
+stonebutton
+button
+polished blackstone button
+polishedblackstonebutton
+oak button
+oakbutton
+spruce button
+sprucebutton
+birch button
+birchbutton
+jungle button
+junglebutton
+acacia button
+acaciabutton
+cherry button
+cherrybutton
+dark oak button
+darkoakbutton
+mangrove button
+mangrovebutton
+bamboo button
+bamboobutton
+crimson button
+crimsonbutton
+warped button
+warpedbutton
+stone pressure plate
+stonepressureplate
+pressure
+plate
+polished blackstone pressure plate
+polishedblackstonepressureplate
+light weighted pressure plate
+lightweightedpressureplate
+weighted
+heavy weighted pressure plate
+heavyweightedpressureplate
+oak pressure plate
+oakpressureplate
+spruce pressure plate
+sprucepressureplate
+birch pressure plate
+birchpressureplate
+jungle pressure plate
+junglepressureplate
+acacia pressure plate
+acaciapressureplate
+cherry pressure plate
+cherrypressureplate
+dark oak pressure plate
+darkoakpressureplate
+mangrove pressure plate
+mangrovepressureplate
+bamboo pressure plate
+bamboopressureplate
+crimson pressure plate
+crimsonpressureplate
+warped pressure plate
+warpedpressureplate
+iron door
+irondoor
+door
+oak door
+oakdoor
+spruce door
+sprucedoor
+birch door
+birchdoor
+jungle door
+jungledoor
+acacia door
+acaciadoor
+cherry door
+cherrydoor
+dark oak door
+darkoakdoor
+mangrove door
+mangrovedoor
+bamboo door
+bamboodoor
+crimson door
+crimsondoor
+warped door
+warpeddoor
+copper door
+copperdoor
+exposed copper door
+exposedcopperdoor
+weathered copper door
+weatheredcopperdoor
+oxidized copper door
+oxidizedcopperdoor
+waxed copper door
+waxedcopperdoor
+waxed exposed copper door
+waxedexposedcopperdoor
+waxed weathered copper door
+waxedweatheredcopperdoor
+waxed oxidized copper door
+waxedoxidizedcopperdoor
+iron trapdoor
+irontrapdoor
+trapdoor
+oak trapdoor
+oaktrapdoor
+spruce trapdoor
+sprucetrapdoor
+birch trapdoor
+birchtrapdoor
+jungle trapdoor
+jungletrapdoor
+acacia trapdoor
+acaciatrapdoor
+cherry trapdoor
+cherrytrapdoor
+dark oak trapdoor
+darkoaktrapdoor
+mangrove trapdoor
+mangrovetrapdoor
+bamboo trapdoor
+bambootrapdoor
+crimson trapdoor
+crimsontrapdoor
+warped trapdoor
+warpedtrapdoor
+copper trapdoor
+coppertrapdoor
+exposed copper trapdoor
+exposedcoppertrapdoor
+weathered copper trapdoor
+weatheredcoppertrapdoor
+oxidized copper trapdoor
+oxidizedcoppertrapdoor
+waxed copper trapdoor
+waxedcoppertrapdoor
+waxed exposed copper trapdoor
+waxedexposedcoppertrapdoor
+waxed weathered copper trapdoor
+waxedweatheredcoppertrapdoor
+waxed oxidized copper trapdoor
+waxedoxidizedcoppertrapdoor
+oak fence gate
+oakfencegate
+gate
+spruce fence gate
+sprucefencegate
+birch fence gate
+birchfencegate
+jungle fence gate
+junglefencegate
+acacia fence gate
+acaciafencegate
+cherry fence gate
+cherryfencegate
+dark oak fence gate
+darkoakfencegate
+mangrove fence gate
+mangrovefencegate
+bamboo fence gate
+bamboofencegate
+crimson fence gate
+crimsonfencegate
+warped fence gate
+warpedfencegate
+powered rail
+poweredrail
+powered
+rail
+detector rail
+detectorrail
+activator rail
+activatorrail
+activator
+saddle
+minecart
+minecart with chest
+minecartwithchest
+chest minecart
+chestminecart
+minecart with furnace
+minecartwithfurnace
+furnace minecart
+furnaceminecart
+minecart with tnt
+minecartwithtnt
+tnt minecart
+tntminecart
+minecart with hopper
+minecartwithhopper
+hopper minecart
+hopperminecart
+carrot on a stick
+carrotonastick
+carrot
+on
+stick
+warped fungus on a stick
+warpedfungusonastick
+elytra
+oak boat
+oakboat
+boat
+oak boat with chest
+oakboatwithchest
+oak chest boat
+oakchestboat
+spruce boat
+spruceboat
+spruce boat with chest
+spruceboatwithchest
+spruce chest boat
+sprucechestboat
+birch boat
+birchboat
+birch boat with chest
+birchboatwithchest
+birch chest boat
+birchchestboat
+jungle boat
+jungleboat
+jungle boat with chest
+jungleboatwithchest
+jungle chest boat
+junglechestboat
+acacia boat
+acaciaboat
+acacia boat with chest
+acaciaboatwithchest
+acacia chest boat
+acaciachestboat
+cherry boat
+cherryboat
+cherry boat with chest
+cherryboatwithchest
+cherry chest boat
+cherrychestboat
+dark oak boat
+darkoakboat
+dark oak boat with chest
+darkoakboatwithchest
+dark oak chest boat
+darkoakchestboat
+mangrove boat
+mangroveboat
+mangrove boat with chest
+mangroveboatwithchest
+mangrove chest boat
+mangrovechestboat
+bamboo raft
+bambooraft
+raft
+bamboo raft with chest
+bambooraftwithchest
+bamboo chest raft
+bamboochestraft
+structure block
+structureblock
+jigsaw block
+jigsawblock
+jigsaw
+turtle shell
+turtleshell
+turtle helmet
+turtlehelmet
+helmet
+turtle scute
+turtlescute
+scute
+armadillo scute
+armadilloscute
+armadillo
+wolf armor
+wolfarmor
+wolf
+armor
+flint and steel
+flintandsteel
+flint
+and
+steel
+bowl
+apple
+bow
+arrow
+charcoal
+lapis lazuli
+lapislazuli
+lazuli
+nether quartz
+netherquartz
+amethyst shard
+amethystshard
+shard
+raw iron
+rawiron
+iron ingot
+ironingot
+ingot
+raw copper
+rawcopper
+copper ingot
+copperingot
+raw gold
+rawgold
+gold ingot
+goldingot
+netherite ingot
+netheriteingot
+netherite scrap
+netheritescrap
+scrap
+wooden sword
+woodensword
+wooden
+sword
+wooden shovel
+woodenshovel
+shovel
+wooden pickaxe
+woodenpickaxe
+pickaxe
+wooden axe
+woodenaxe
+axe
+wooden hoe
+woodenhoe
+hoe
+stone sword
+stonesword
+stone shovel
+stoneshovel
+stone pickaxe
+stonepickaxe
+stone axe
+stoneaxe
+stone hoe
+stonehoe
+golden sword
+goldensword
+golden
+golden shovel
+goldenshovel
+golden pickaxe
+goldenpickaxe
+golden axe
+goldenaxe
+golden hoe
+goldenhoe
+iron sword
+ironsword
+iron shovel
+ironshovel
+iron pickaxe
+ironpickaxe
+iron axe
+ironaxe
+iron hoe
+ironhoe
+diamond sword
+diamondsword
+diamond shovel
+diamondshovel
+diamond pickaxe
+diamondpickaxe
+diamond axe
+diamondaxe
+diamond hoe
+diamondhoe
+netherite sword
+netheritesword
+netherite shovel
+netheriteshovel
+netherite pickaxe
+netheritepickaxe
+netherite axe
+netheriteaxe
+netherite hoe
+netheritehoe
+mushroom stew
+mushroomstew
+stew
+string
+feather
+gunpowder
+wheat seeds
+wheatseeds
+wheat seed
+wheatseed
+wheat
+seeds
+seed
+bread
+leather cap
+leathercap
+leather helmet
+leatherhelmet
+leather
+leather tunic
+leathertunic
+leather chestplate
+leatherchestplate
+chestplate
+leather pants
+leatherpants
+leather pant
+leatherpant
+leather leggings
+leatherleggings
+leather legging
+leatherlegging
+leggings
+legging
+leather boots
+leatherboots
+leather boot
+leatherboot
+boots
+boot
+chainmail helmet
+chainmailhelmet
+chainmail
+chainmail chestplate
+chainmailchestplate
+chainmail leggings
+chainmailleggings
+chainmail legging
+chainmaillegging
+chainmail boots
+chainmailboots
+chainmail boot
+chainmailboot
+iron helmet
+ironhelmet
+iron chestplate
+ironchestplate
+iron leggings
+ironleggings
+iron legging
+ironlegging
+iron boots
+ironboots
+iron boot
+ironboot
+diamond helmet
+diamondhelmet
+diamond chestplate
+diamondchestplate
+diamond leggings
+diamondleggings
+diamond legging
+diamondlegging
+diamond boots
+diamondboots
+diamond boot
+diamondboot
+golden helmet
+goldenhelmet
+golden chestplate
+goldenchestplate
+golden leggings
+goldenleggings
+golden legging
+goldenlegging
+golden boots
+goldenboots
+golden boot
+goldenboot
+netherite helmet
+netheritehelmet
+netherite chestplate
+netheritechestplate
+netherite leggings
+netheriteleggings
+netherite legging
+netheritelegging
+netherite boots
+netheriteboots
+netherite boot
+netheriteboot
+raw porkchop
+rawporkchop
+porkchop
+cooked porkchop
+cookedporkchop
+cooked
+painting
+golden apple
+goldenapple
+enchanted golden apple
+enchantedgoldenapple
+enchanted
+oak sign
+oaksign
+sign
+spruce sign
+sprucesign
+birch sign
+birchsign
+jungle sign
+junglesign
+acacia sign
+acaciasign
+cherry sign
+cherrysign
+dark oak sign
+darkoaksign
+mangrove sign
+mangrovesign
+bamboo sign
+bamboosign
+crimson sign
+crimsonsign
+warped sign
+warpedsign
+oak hanging sign
+oakhangingsign
+spruce hanging sign
+sprucehangingsign
+birch hanging sign
+birchhangingsign
+jungle hanging sign
+junglehangingsign
+acacia hanging sign
+acaciahangingsign
+cherry hanging sign
+cherryhangingsign
+dark oak hanging sign
+darkoakhangingsign
+mangrove hanging sign
+mangrovehangingsign
+bamboo hanging sign
+bamboohangingsign
+crimson hanging sign
+crimsonhangingsign
+warped hanging sign
+warpedhangingsign
+bucket
+water bucket
+waterbucket
+water
+lava bucket
+lavabucket
+lava
+powder snow bucket
+powdersnowbucket
+snowball
+milk bucket
+milkbucket
+milk
+bucket of pufferfish
+bucketofpufferfish
+pufferfish bucket
+pufferfishbucket
+pufferfish
+bucket of salmon
+bucketofsalmon
+salmon bucket
+salmonbucket
+salmon
+bucket of cod
+bucketofcod
+cod bucket
+codbucket
+cod
+bucket of tropical fish
+bucketoftropicalfish
+tropical fish bucket
+tropicalfishbucket
+tropical
+fish
+bucket of axolotl
+bucketofaxolotl
+axolotl bucket
+axolotlbucket
+axolotl
+bucket of tadpole
+bucketoftadpole
+tadpole bucket
+tadpolebucket
+tadpole
+clay ball
+clayball
+ball
+dried kelp block
+driedkelpblock
+dried
+paper
+book
+slimeball
+slime ball
+compass
+compas
+recovery compass
+recoverycompass
+recovery compas
+recoverycompas
+recovery
+bundle
+fishing rod
+fishingrod
+fishing
+clock
+spyglass
+spyglas
+glowstone dust
+glowstonedust
+dust
+raw cod
+rawcod
+raw salmon
+rawsalmon
+tropical fish
+tropicalfish
+cooked cod
+cookedcod
+cooked salmon
+cookedsalmon
+ink sac
+inksac
+ink
+sac
+glow ink sac
+glowinksac
+cocoa beans
+cocoabeans
+cocoa bean
+cocoabean
+cocoa
+beans
+bean
+white dye
+whitedye
+dye
+orange dye
+orangedye
+magenta dye
+magentadye
+light blue dye
+lightbluedye
+yellow dye
+yellowdye
+lime dye
+limedye
+pink dye
+pinkdye
+gray dye
+graydye
+light gray dye
+lightgraydye
+cyan dye
+cyandye
+purple dye
+purpledye
+blue dye
+bluedye
+brown dye
+browndye
+green dye
+greendye
+red dye
+reddye
+black dye
+blackdye
+bone meal
+bonemeal
+meal
+cake
+white bed
+whitebed
+bed
+orange bed
+orangebed
+magenta bed
+magentabed
+light blue bed
+lightbluebed
+yellow bed
+yellowbed
+lime bed
+limebed
+pink bed
+pinkbed
+gray bed
+graybed
+light gray bed
+lightgraybed
+cyan bed
+cyanbed
+purple bed
+purplebed
+blue bed
+bluebed
+brown bed
+brownbed
+green bed
+greenbed
+red bed
+redbed
+black bed
+blackbed
+cookie
+crafter
+map
+filled map
+filledmap
+filled
+shears
+shear
+melon slice
+melonslice
+slice
+dried kelp
+driedkelp
+pumpkin seeds
+pumpkinseeds
+pumpkin seed
+pumpkinseed
+melon seeds
+melonseeds
+melon seed
+melonseed
+raw beef
+rawbeef
+beef
+steak
+cooked beef
+cookedbeef
+raw chicken
+rawchicken
+chicken
+cooked chicken
+cookedchicken
+rotten flesh
+rottenflesh
+rotten
+flesh
+ender pearl
+enderpearl
+pearl
+blaze rod
+blazerod
+blaze
+ghast tear
+ghasttear
+ghast
+tear
+gold nugget
+goldnugget
+nugget
+nether wart
+netherwart
+potion
+glass bottle
+glassbottle
+bottle
+spider eye
+spidereye
+spider
+eye
+fermented spider eye
+fermentedspidereye
+fermented
+blaze powder
+blazepowder
+magma cream
+magmacream
+cream
+brewing stand
+brewingstand
+brewing
+stand
+cauldron
+eye of ender
+eyeofender
+ender eye
+endereye
+glistering melon slice
+glisteringmelonslice
+glistering
+armadillo spawn egg
+armadillospawnegg
+spawn
+allay spawn egg
+allayspawnegg
+allay
+axolotl spawn egg
+axolotlspawnegg
+bat spawn egg
+batspawnegg
+bat
+bee spawn egg
+beespawnegg
+bee
+blaze spawn egg
+blazespawnegg
+bogged spawn egg
+boggedspawnegg
+bogged
+breeze spawn egg
+breezespawnegg
+breeze
+cat spawn egg
+catspawnegg
+cat
+camel spawn egg
+camelspawnegg
+camel
+cave spider spawn egg
+cavespiderspawnegg
+cave
+chicken spawn egg
+chickenspawnegg
+cod spawn egg
+codspawnegg
+cow spawn egg
+cowspawnegg
+cow
+creeper spawn egg
+creeperspawnegg
+creeper
+dolphin spawn egg
+dolphinspawnegg
+dolphin
+donkey spawn egg
+donkeyspawnegg
+donkey
+drowned spawn egg
+drownedspawnegg
+drowned
+elder guardian spawn egg
+elderguardianspawnegg
+elder
+guardian
+ender dragon spawn egg
+enderdragonspawnegg
+enderman spawn egg
+endermanspawnegg
+enderman
+endermite spawn egg
+endermitespawnegg
+endermite
+evoker spawn egg
+evokerspawnegg
+evoker
+fox spawn egg
+foxspawnegg
+fox
+frog spawn egg
+frogspawnegg
+frog
+ghast spawn egg
+ghastspawnegg
+glow squid spawn egg
+glowsquidspawnegg
+squid
+goat spawn egg
+goatspawnegg
+goat
+guardian spawn egg
+guardianspawnegg
+hoglin spawn egg
+hoglinspawnegg
+hoglin
+horse spawn egg
+horsespawnegg
+horse
+husk spawn egg
+huskspawnegg
+husk
+iron golem spawn egg
+irongolemspawnegg
+golem
+llama spawn egg
+llamaspawnegg
+llama
+magma cube spawn egg
+magmacubespawnegg
+cube
+mooshroom spawn egg
+mooshroomspawnegg
+mooshroom
+mule spawn egg
+mulespawnegg
+mule
+ocelot spawn egg
+ocelotspawnegg
+ocelot
+panda spawn egg
+pandaspawnegg
+panda
+parrot spawn egg
+parrotspawnegg
+parrot
+phantom spawn egg
+phantomspawnegg
+phantom
+pig spawn egg
+pigspawnegg
+pig
+piglin spawn egg
+piglinspawnegg
+piglin
+piglin brute spawn egg
+piglinbrutespawnegg
+brute
+pillager spawn egg
+pillagerspawnegg
+pillager
+polar bear spawn egg
+polarbearspawnegg
+polar
+bear
+pufferfish spawn egg
+pufferfishspawnegg
+rabbit spawn egg
+rabbitspawnegg
+rabbit
+ravager spawn egg
+ravagerspawnegg
+ravager
+salmon spawn egg
+salmonspawnegg
+sheep spawn egg
+sheepspawnegg
+sheep
+shulker spawn egg
+shulkerspawnegg
+silverfish spawn egg
+silverfishspawnegg
+silverfish
+skeleton spawn egg
+skeletonspawnegg
+skeleton
+skeleton horse spawn egg
+skeletonhorsespawnegg
+slime spawn egg
+slimespawnegg
+sniffer spawn egg
+snifferspawnegg
+snow golem spawn egg
+snowgolemspawnegg
+spider spawn egg
+spiderspawnegg
+squid spawn egg
+squidspawnegg
+stray spawn egg
+strayspawnegg
+stray
+strider spawn egg
+striderspawnegg
+strider
+tadpole spawn egg
+tadpolespawnegg
+trader llama spawn egg
+traderllamaspawnegg
+trader
+tropical fish spawn egg
+tropicalfishspawnegg
+turtle spawn egg
+turtlespawnegg
+vex spawn egg
+vexspawnegg
+vex
+villager spawn egg
+villagerspawnegg
+villager
+vindicator spawn egg
+vindicatorspawnegg
+vindicator
+wandering trader spawn egg
+wanderingtraderspawnegg
+wandering
+warden spawn egg
+wardenspawnegg
+warden
+witch spawn egg
+witchspawnegg
+witch
+wither spawn egg
+witherspawnegg
+wither skeleton spawn egg
+witherskeletonspawnegg
+wolf spawn egg
+wolfspawnegg
+zoglin spawn egg
+zoglinspawnegg
+zoglin
+zombie spawn egg
+zombiespawnegg
+zombie
+zombie horse spawn egg
+zombiehorsespawnegg
+zombie villager spawn egg
+zombievillagerspawnegg
+zombified piglin spawn egg
+zombifiedpiglinspawnegg
+zombified
+bottle o' enchanting
+bottleo'enchanting
+experience bottle
+experiencebottle
+experience
+fire charge
+firecharge
+charge
+wind charge
+windcharge
+wind
+book and quill
+bookandquill
+writable book
+writablebook
+writable
+written book
+writtenbook
+written
+mace
+item frame
+itemframe
+item
+glow item frame
+glowitemframe
+flower pot
+flowerpot
+potato
+baked potato
+bakedpotato
+baked
+poisonous potato
+poisonouspotato
+poisonous
+poisonou
+empty map
+emptymap
+golden carrot
+goldencarrot
+skeleton skull
+skeletonskull
+skull
+wither skeleton skull
+witherskeletonskull
+player head
+playerhead
+player
+head
+zombie head
+zombiehead
+creeper head
+creeperhead
+dragon head
+dragonhead
+piglin head
+piglinhead
+nether star
+netherstar
+star
+pumpkin pie
+pumpkinpie
+pie
+firework rocket
+fireworkrocket
+firework
+rocket
+firework star
+fireworkstar
+enchanted book
+enchantedbook
+prismarine shard
+prismarineshard
+prismarine crystals
+prismarinecrystals
+prismarine crystal
+prismarinecrystal
+crystals
+crystal
+raw rabbit
+rawrabbit
+cooked rabbit
+cookedrabbit
+rabbit stew
+rabbitstew
+rabbit's foot
+rabbit'sfoot
+rabbit foot
+rabbitfoot
+foot
+rabbit hide
+rabbithide
+hide
+armor stand
+armorstand
+iron horse armor
+ironhorsearmor
+golden horse armor
+goldenhorsearmor
+diamond horse armor
+diamondhorsearmor
+leather horse armor
+leatherhorsearmor
+lead
+name tag
+nametag
+name
+tag
+minecart with command block
+minecartwithcommandblock
+command block minecart
+commandblockminecart
+raw mutton
+rawmutton
+mutton
+cooked mutton
+cookedmutton
+white banner
+whitebanner
+banner
+orange banner
+orangebanner
+magenta banner
+magentabanner
+light blue banner
+lightbluebanner
+yellow banner
+yellowbanner
+lime banner
+limebanner
+pink banner
+pinkbanner
+gray banner
+graybanner
+light gray banner
+lightgraybanner
+cyan banner
+cyanbanner
+purple banner
+purplebanner
+blue banner
+bluebanner
+brown banner
+brownbanner
+green banner
+greenbanner
+red banner
+redbanner
+black banner
+blackbanner
+end crystal
+endcrystal
+chorus fruit
+chorusfruit
+fruit
+popped chorus fruit
+poppedchorusfruit
+popped
+torchflower seeds
+torchflowerseeds
+torchflower seed
+torchflowerseed
+pitcher pod
+pitcherpod
+pod
+beetroot
+beetroot seeds
+beetrootseeds
+beetroot seed
+beetrootseed
+beetroot soup
+beetrootsoup
+soup
+dragon's breath
+dragon'sbreath
+dragon breath
+dragonbreath
+breath
+splash potion
+splashpotion
+splash
+spectral arrow
+spectralarrow
+spectral
+tipped arrow
+tippedarrow
+tipped
+lingering potion
+lingeringpotion
+lingering
+shield
+totem of undying
+totemofundying
+totem
+undying
+shulker shell
+shulkershell
+shell
+iron nugget
+ironnugget
+knowledge book
+knowledgebook
+knowledge
+debug stick
+debugstick
+debug
+music disc
+musicdisc
+music disc 13
+musicdisc13
+music
+disc
+music disc cat
+musicdisccat
+music disc blocks
+musicdiscblocks
+music disc block
+musicdiscblock
+blocks
+music disc chirp
+musicdiscchirp
+chirp
+music disc creator
+musicdisccreator
+creator
+music disc creator music box
+musicdisccreatormusicbox
+music disc far
+musicdiscfar
+far
+music disc mall
+musicdiscmall
+mall
+music disc mellohi
+musicdiscmellohi
+mellohi
+music disc stal
+musicdiscstal
+stal
+music disc strad
+musicdiscstrad
+strad
+music disc ward
+musicdiscward
+ward
+music disc 11
+musicdisc11
+music disc wait
+musicdiscwait
+wait
+music disc otherside
+musicdiscotherside
+otherside
+music disc relic
+musicdiscrelic
+relic
+music disc 5
+musicdisc5
+music disc pigstep
+musicdiscpigstep
+pigstep
+music disc precipice
+musicdiscprecipice
+precipice
+disc fragment
+discfragment
+disc fragment 5
+discfragment5
+fragment
+trident
+phantom membrane
+phantommembrane
+membrane
+nautilus shell
+nautilusshell
+nautilus
+nautilu
+heart of the sea
+heartofthesea
+heart
+crossbow
+suspicious stew
+suspiciousstew
+loom
+banner pattern
+bannerpattern
+flower banner pattern
+flowerbannerpattern
+pattern
+creeper banner pattern
+creeperbannerpattern
+skull banner pattern
+skullbannerpattern
+mojang banner pattern
+mojangbannerpattern
+mojang
+globe banner pattern
+globebannerpattern
+globe
+piglin banner pattern
+piglinbannerpattern
+flow banner pattern
+flowbannerpattern
+flow
+guster banner pattern
+gusterbannerpattern
+guster
+goat horn
+goathorn
+composter
+barrel
+smoker
+blast furnace
+blastfurnace
+blast
+cartography table
+cartographytable
+cartography
+fletching table
+fletchingtable
+fletching
+grindstone
+smithing table
+smithingtable
+smithing
+stonecutter
+bell
+soul lantern
+soullantern
+sweet berries
+sweetberries
+sweet berrie
+sweetberrie
+sweet
+berries
+berrie
+glow berries
+glowberries
+glow berrie
+glowberrie
+campfire
+soul campfire
+soulcampfire
+shroomlight
+honeycomb
+bee nest
+beenest
+nest
+beehive
+honey bottle
+honeybottle
+honeycomb block
+honeycombblock
+lodestone
+crying obsidian
+cryingobsidian
+crying
+blackstone slab
+blackstoneslab
+blackstone stairs
+blackstonestairs
+blackstone stair
+blackstonestair
+gilded blackstone
+gildedblackstone
+gilded
+polished blackstone
+polishedblackstone
+polished blackstone slab
+polishedblackstoneslab
+polished blackstone stairs
+polishedblackstonestairs
+polished blackstone stair
+polishedblackstonestair
+chiseled polished blackstone
+chiseledpolishedblackstone
+polished blackstone bricks
+polishedblackstonebricks
+polished blackstone brick
+polishedblackstonebrick
+polished blackstone brick slab
+polishedblackstonebrickslab
+polished blackstone brick stairs
+polishedblackstonebrickstairs
+polished blackstone brick stair
+polishedblackstonebrickstair
+cracked polished blackstone bricks
+crackedpolishedblackstonebricks
+cracked polished blackstone brick
+crackedpolishedblackstonebrick
+respawn anchor
+respawnanchor
+respawn
+anchor
+candle
+white candle
+whitecandle
+orange candle
+orangecandle
+magenta candle
+magentacandle
+light blue candle
+lightbluecandle
+yellow candle
+yellowcandle
+lime candle
+limecandle
+pink candle
+pinkcandle
+gray candle
+graycandle
+light gray candle
+lightgraycandle
+cyan candle
+cyancandle
+purple candle
+purplecandle
+blue candle
+bluecandle
+brown candle
+browncandle
+green candle
+greencandle
+red candle
+redcandle
+black candle
+blackcandle
+small amethyst bud
+smallamethystbud
+bud
+medium amethyst bud
+mediumamethystbud
+medium
+large amethyst bud
+largeamethystbud
+amethyst cluster
+amethystcluster
+cluster
+pointed dripstone
+pointeddripstone
+pointed
+ochre froglight
+ochrefroglight
+ochre
+froglight
+verdant froglight
+verdantfroglight
+verdant
+pearlescent froglight
+pearlescentfroglight
+pearlescent
+frogspawn
+echo shard
+echoshard
+echo
+brush
+smithing template
+smithingtemplate
+netherite upgrade smithing template
+netheriteupgradesmithingtemplate
+upgrade
+template
+sentry armor trim smithing template
+sentryarmortrimsmithingtemplate
+sentry
+trim
+dune armor trim smithing template
+dunearmortrimsmithingtemplate
+dune
+coast armor trim smithing template
+coastarmortrimsmithingtemplate
+coast
+wild armor trim smithing template
+wildarmortrimsmithingtemplate
+wild
+ward armor trim smithing template
+wardarmortrimsmithingtemplate
+eye armor trim smithing template
+eyearmortrimsmithingtemplate
+vex armor trim smithing template
+vexarmortrimsmithingtemplate
+tide armor trim smithing template
+tidearmortrimsmithingtemplate
+tide
+snout armor trim smithing template
+snoutarmortrimsmithingtemplate
+snout
+rib armor trim smithing template
+ribarmortrimsmithingtemplate
+rib
+spire armor trim smithing template
+spirearmortrimsmithingtemplate
+spire
+wayfinder armor trim smithing template
+wayfinderarmortrimsmithingtemplate
+wayfinder
+shaper armor trim smithing template
+shaperarmortrimsmithingtemplate
+shaper
+silence armor trim smithing template
+silencearmortrimsmithingtemplate
+silence
+raiser armor trim smithing template
+raiserarmortrimsmithingtemplate
+raiser
+host armor trim smithing template
+hostarmortrimsmithingtemplate
+host
+flow armor trim smithing template
+flowarmortrimsmithingtemplate
+bolt armor trim smithing template
+boltarmortrimsmithingtemplate
+bolt
+angler pottery sherd
+anglerpotterysherd
+angler
+pottery
+sherd
+archer pottery sherd
+archerpotterysherd
+archer
+arms up pottery sherd
+armsuppotterysherd
+arms
+arm
+up
+blade pottery sherd
+bladepotterysherd
+blade
+brewer pottery sherd
+brewerpotterysherd
+brewer
+burn pottery sherd
+burnpotterysherd
+burn
+danger pottery sherd
+dangerpotterysherd
+danger
+explorer pottery sherd
+explorerpotterysherd
+explorer
+flow pottery sherd
+flowpotterysherd
+friend pottery sherd
+friendpotterysherd
+friend
+guster pottery sherd
+gusterpotterysherd
+heart pottery sherd
+heartpotterysherd
+heartbreak pottery sherd
+heartbreakpotterysherd
+heartbreak
+howl pottery sherd
+howlpotterysherd
+howl
+miner pottery sherd
+minerpotterysherd
+miner
+mourner pottery sherd
+mournerpotterysherd
+mourner
+plenty pottery sherd
+plentypotterysherd
+plenty
+prize pottery sherd
+prizepotterysherd
+prize
+scrape pottery sherd
+scrapepotterysherd
+scrape
+sheaf pottery sherd
+sheafpotterysherd
+sheaf
+shelter pottery sherd
+shelterpotterysherd
+shelter
+skull pottery sherd
+skullpotterysherd
+snort pottery sherd
+snortpotterysherd
+snort
+copper grate
+coppergrate
+grate
+exposed copper grate
+exposedcoppergrate
+weathered copper grate
+weatheredcoppergrate
+oxidized copper grate
+oxidizedcoppergrate
+waxed copper grate
+waxedcoppergrate
+waxed exposed copper grate
+waxedexposedcoppergrate
+waxed weathered copper grate
+waxedweatheredcoppergrate
+waxed oxidized copper grate
+waxedoxidizedcoppergrate
+copper bulb
+copperbulb
+bulb
+exposed copper bulb
+exposedcopperbulb
+weathered copper bulb
+weatheredcopperbulb
+oxidized copper bulb
+oxidizedcopperbulb
+waxed copper bulb
+waxedcopperbulb
+waxed exposed copper bulb
+waxedexposedcopperbulb
+waxed weathered copper bulb
+waxedweatheredcopperbulb
+waxed oxidized copper bulb
+waxedoxidizedcopperbulb
+trial spawner
+trialspawner
+trial
+trial key
+trialkey
+key
+ominous trial key
+ominoustrialkey
+ominous
+ominou
+vault
+ominous bottle
+ominousbottle
+breeze rod
+breezerod
+tall seagrass
+tallseagrass
+tall seagras
+tallseagras
+piston head
+pistonhead
+moving piston
+movingpiston
+moving
+wall torch
+walltorch
+soul fire
+soulfire
+redstone wire
+redstonewire
+wire
+wheat crops
+wheatcrops
+wheat crop
+wheatcrop
+oak wall sign
+oakwallsign
+spruce wall sign
+sprucewallsign
+birch wall sign
+birchwallsign
+acacia wall sign
+acaciawallsign
+cherry wall sign
+cherrywallsign
+jungle wall sign
+junglewallsign
+dark oak wall sign
+darkoakwallsign
+mangrove wall sign
+mangrovewallsign
+bamboo wall sign
+bamboowallsign
+oak wall hanging sign
+oakwallhangingsign
+spruce wall hanging sign
+sprucewallhangingsign
+birch wall hanging sign
+birchwallhangingsign
+acacia wall hanging sign
+acaciawallhangingsign
+cherry wall hanging sign
+cherrywallhangingsign
+jungle wall hanging sign
+junglewallhangingsign
+dark oak wall hanging sign
+darkoakwallhangingsign
+mangrove wall hanging sign
+mangrovewallhangingsign
+crimson wall hanging sign
+crimsonwallhangingsign
+warped wall hanging sign
+warpedwallhangingsign
+bamboo wall hanging sign
+bamboowallhangingsign
+redstone wall torch
+redstonewalltorch
+soul wall torch
+soulwalltorch
+nether portal
+netherportal
+attached pumpkin stem
+attachedpumpkinstem
+attached
+attached melon stem
+attachedmelonstem
+pumpkin stem
+pumpkinstem
+melon stem
+melonstem
+water cauldron
+watercauldron
+lava cauldron
+lavacauldron
+powder snow cauldron
+powdersnowcauldron
+end portal
+endportal
+potted torchflower
+pottedtorchflower
+potted
+potted oak sapling
+pottedoaksapling
+potted spruce sapling
+pottedsprucesapling
+potted birch sapling
+pottedbirchsapling
+potted jungle sapling
+pottedjunglesapling
+potted acacia sapling
+pottedacaciasapling
+potted cherry sapling
+pottedcherrysapling
+potted dark oak sapling
+potteddarkoaksapling
+potted mangrove propagule
+pottedmangrovepropagule
+potted fern
+pottedfern
+potted dandelion
+potteddandelion
+potted poppy
+pottedpoppy
+potted blue orchid
+pottedblueorchid
+potted allium
+pottedallium
+potted azure bluet
+pottedazurebluet
+potted red tulip
+pottedredtulip
+potted orange tulip
+pottedorangetulip
+potted white tulip
+pottedwhitetulip
+potted pink tulip
+pottedpinktulip
+potted oxeye daisy
+pottedoxeyedaisy
+potted cornflower
+pottedcornflower
+potted lily of the valley
+pottedlilyofthevalley
+potted wither rose
+pottedwitherrose
+potted red mushroom
+pottedredmushroom
+potted brown mushroom
+pottedbrownmushroom
+potted dead bush
+potteddeadbush
+potted cactus
+pottedcactus
+potted cactu
+pottedcactu
+carrots
+potatoes
+potatoe
+skeleton wall skull
+skeletonwallskull
+wither skeleton wall skull
+witherskeletonwallskull
+zombie wall head
+zombiewallhead
+player wall head
+playerwallhead
+creeper wall head
+creeperwallhead
+dragon wall head
+dragonwallhead
+piglin wall head
+piglinwallhead
+white wall banner
+whitewallbanner
+orange wall banner
+orangewallbanner
+magenta wall banner
+magentawallbanner
+light blue wall banner
+lightbluewallbanner
+yellow wall banner
+yellowwallbanner
+lime wall banner
+limewallbanner
+pink wall banner
+pinkwallbanner
+gray wall banner
+graywallbanner
+light gray wall banner
+lightgraywallbanner
+cyan wall banner
+cyanwallbanner
+purple wall banner
+purplewallbanner
+blue wall banner
+bluewallbanner
+brown wall banner
+brownwallbanner
+green wall banner
+greenwallbanner
+red wall banner
+redwallbanner
+black wall banner
+blackwallbanner
+torchflower crop
+torchflowercrop
+crop
+pitcher crop
+pitchercrop
+beetroots
+end gateway
+endgateway
+gateway
+frosted ice
+frostedice
+frosted
+kelp plant
+kelpplant
+dead tube coral wall fan
+deadtubecoralwallfan
+dead brain coral wall fan
+deadbraincoralwallfan
+dead bubble coral wall fan
+deadbubblecoralwallfan
+dead fire coral wall fan
+deadfirecoralwallfan
+dead horn coral wall fan
+deadhorncoralwallfan
+tube coral wall fan
+tubecoralwallfan
+brain coral wall fan
+braincoralwallfan
+bubble coral wall fan
+bubblecoralwallfan
+fire coral wall fan
+firecoralwallfan
+horn coral wall fan
+horncoralwallfan
+bamboo shoot
+bambooshoot
+bamboo sapling
+bamboosapling
+potted bamboo
+pottedbamboo
+void air
+voidair
+cave air
+caveair
+bubble column
+bubblecolumn
+column
+sweet berry bush
+sweetberrybush
+berry
+weeping vines plant
+weepingvinesplant
+twisting vines plant
+twistingvinesplant
+crimson wall sign
+crimsonwallsign
+warped wall sign
+warpedwallsign
+potted crimson fungus
+pottedcrimsonfungus
+potted crimson fungu
+pottedcrimsonfungu
+potted warped fungus
+pottedwarpedfungus
+potted warped fungu
+pottedwarpedfungu
+potted crimson roots
+pottedcrimsonroots
+potted crimson root
+pottedcrimsonroot
+potted warped roots
+pottedwarpedroots
+potted warped root
+pottedwarpedroot
+cake with candle
+cakewithcandle
+candle cake
+candlecake
+cake with white candle
+cakewithwhitecandle
+white candle cake
+whitecandlecake
+cake with orange candle
+cakewithorangecandle
+orange candle cake
+orangecandlecake
+cake with magenta candle
+cakewithmagentacandle
+magenta candle cake
+magentacandlecake
+cake with light blue candle
+cakewithlightbluecandle
+light blue candle cake
+lightbluecandlecake
+cake with yellow candle
+cakewithyellowcandle
+yellow candle cake
+yellowcandlecake
+cake with lime candle
+cakewithlimecandle
+lime candle cake
+limecandlecake
+cake with pink candle
+cakewithpinkcandle
+pink candle cake
+pinkcandlecake
+cake with gray candle
+cakewithgraycandle
+gray candle cake
+graycandlecake
+cake with light gray candle
+cakewithlightgraycandle
+light gray candle cake
+lightgraycandlecake
+cake with cyan candle
+cakewithcyancandle
+cyan candle cake
+cyancandlecake
+cake with purple candle
+cakewithpurplecandle
+purple candle cake
+purplecandlecake
+cake with blue candle
+cakewithbluecandle
+blue candle cake
+bluecandlecake
+cake with brown candle
+cakewithbrowncandle
+brown candle cake
+browncandlecake
+cake with green candle
+cakewithgreencandle
+green candle cake
+greencandlecake
+cake with red candle
+cakewithredcandle
+red candle cake
+redcandlecake
+cake with black candle
+cakewithblackcandle
+black candle cake
+blackcandlecake
+powder snow
+powdersnow
+cave vines
+cavevines
+cave vine
+cavevine
+cave vines plant
+cavevinesplant
+big dripleaf stem
+bigdripleafstem
+potted azalea
+pottedazalea
+potted azalea bush
+pottedazaleabush
+potted flowering azalea
+pottedfloweringazalea
+potted flowering azalea bush
+pottedfloweringazaleabush

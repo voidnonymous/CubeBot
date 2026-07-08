@@ -1,0 +1,84 @@
+MINIRUNNER — Project Resume
+============================
+Headless ManaCube chat-race bot with WebUI control server.
+Minecraft 1.21.11, Node >=20, mineflayer ^4.29.0.
+Server: localhost:3694.
+
+Source Files
+------------
+src/index.js          Entry point. Auto-spawns with --expose-gc --optimize-for-size if missing.
+src/config.js         Loads config.json + env vars for bot/web settings.
+src/server.js         HTTP server. Routes: /api/stats, /api/config, /api/send, /api/gc,
+                      /api/join, /api/leave, /api/hardcore, /api/warp-afk, /api/reload-words,
+                      /api/raw-scoreboard, /api/private-mode, /api/scoreboard, /api/players,
+                      /api/reset, /api/auth, /api/longterm. Periodic GC every 30min.
+src/botController.js  Main bot logic (~1113 lines). Handles connect/reconnect, prompt
+                      parsing, answering, scoreboard, anti-detection, humanization, private
+                      messaging, chat logging, map CAPTCHA, chunk tracking.
+src/stats.js          StatsStore — singleton state with snapshot(), long-term persistence,
+                      logs, manaHistory (cap 120 entries), scoreboard storage.
+src/wordSolver.js     Anagram-based word solver. Loads words.txt, Q-table scoring (wins/
+                      attempts ratio), exploration, blocklist, fallback patterns.
+src/chatParser.js     Parses chat messages. Handles: standard "name > msg", weird symbols
+                      (fallback regex), PM arrows (->), nobody-got-scrambler, nobody+the-word-was
+                      (two-line split learning), "you won" detection.
+src/mapHandler.js     Map CAPTCHA solver. Listens for map packets, polls inventory for
+                      filled_map, converts pixel data to PNG (handwritten encoder), sends to
+                      Ollama at 192.168.68.74:11434 (model gemma4:e2b), replies in chat.
+src/chunkTracker.js   Chunk change detection. Sets RD→2, hashes chunks via FNV-1a (fast,
+                      no crypto), stores key→hash map (~25 entries, ~800 bytes). Warns on
+                      hash mismatch. Work deferred via setImmediate to avoid event-loop
+                      blocking. No raw chunk data stored.
+public/index.html     WebUI — Catppuccin Mocha theme. Tabs: Players, Chat, Logs, Config.
+                      Sidebar, mobile drawer, KB shortcuts (Ctrl+1-4), Ctrl+Enter send,
+                      Enter=newline toggle, sparkline, memory bar (throttled 10s),
+                      chunk count, GC button, answering toggle, anti-detection fields,
+                      scheduled commands UI, private mode banner, green PM styling.
+
+Key Behaviors
+-------------
+Scoreboard: Parsed from bot.teams (TAB plugin prefix/suffix), not scoreboard items.
+Anti-detection: Skip rate, wrong answers, typos+correction, fatigue (answers→skip),
+  random breaks, jittered active hours, join grace, length-based skip multiplier,
+  blocklist (3-layer: load/filter/pre-chat), answering toggle, vanilla client mimicry
+  (locales, skin bits, view distance, particleStatus).
+User-active mode: Sending any WebUI message marks user present (5min window). During
+  window: skips anti-detection gating (no fatigue/breaks/skip/active-hours) but keeps
+  human delays. After 5min silence, anti-detection resumes.
+Private messaging: !Private <name> routes all chat via /msg, !Public exits. Filters
+  incoming to target + system msgs. Yellow banner in WebUI.
+MapHandler: Polls inventory for filled_map, PNG-encodes pixel data, Ollama OCR, replies.
+Environment detection: 5s polling of bot.entity.position; horizontal >3 blocks + no
+  recent command → warn (possible teleport).
+Heartbeat: 60s. Warns if no prompts for ≥5min.
+Protocol error detection: Italian "errore interno" + English "internal connection error"
+  → halt reconnect immediately (version mismatch = manual fix).
+Chat logging: Every parsed player message with ISO timestamp to chat.log.
+
+Memory
+------
+Heap: ~150MB used / ~147MB total. RSS: ~263MB (native addon overhead).
+--expose-gc + --optimize-for-size applied automagically via re-spawn.
+GC button in WebUI, auto-GC every 30min.
+Memory bar throttled to 10s updates to avoid layout thrash.
+
+Anti-Detection Tunables (live via WebUI Config)
+------------------------------------------------
+skipRate, wrongRate, maxRetries, typoRate, typoFixRate,
+activeStartHour, activeEndHour, activeJitterMinutes, joinGraceMax,
+fatigueThreshold, fatigueSkipMin, fatigueSkipMax,
+breakIntervalMin, breakIntervalMax, breakDurationMin, breakDurationMax.
+
+Known Quirks
+------------
+- mineflayer settings plugin doesn't send particleStatus (1.21+ field).
+  Patched node_modules/mineflayer/lib/plugins/settings.js to add it.
+- Scoreboard items empty on ManaCube; must read from team prefix/suffix.
+- Q-table was silently broken (multiplying object, not ratio) — fixed.
+- tick_end removed as too risky.
+- player_loaded kept (one-shot, try/catch wrapped).
+
+To-Do
+-----
+- Resource pack font extraction for custom unicode glyphs.
+- Head rotation, occasional chat messages, auto-taunt, inventory flick.
