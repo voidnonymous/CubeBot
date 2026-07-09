@@ -117,11 +117,14 @@ export class WordSolver {
     }
 
     const key = signature(word);
-    const matches = this.anagrams.get(key) ?? [];
-    if (!matches.includes(word)) {
-      matches.push(word);
+    const existing = this.anagrams.get(key);
+    if (existing) {
+      if (existing.split(' ').indexOf(word) === -1) {
+        this.anagrams.set(key, existing + ' ' + word);
+      }
+    } else {
+      this.anagrams.set(key, word);
     }
-    this.anagrams.set(key, matches);
     this.stats.loaded++;
   }
 
@@ -138,12 +141,12 @@ export class WordSolver {
     const normalized = normalizeWord(scrambled);
     if (!normalized) return [];
 
-    const matches = this.anagrams.get(signature(normalized));
-    if (!matches?.length) return [];
-
     const sig = signature(normalized);
+    const raw = this.anagrams.get(sig);
+    if (!raw) return [];
 
-    const scored = matches.map((word) => ({
+    const words = raw.split(' ');
+    const scored = words.map((word) => ({
       word,
       score: this.scoreWord(word, normalized, sig),
     }));
@@ -236,8 +239,8 @@ export class WordSolver {
     if (word.length < 2) return;
 
     const key = signature(word);
-    const matches = this.anagrams.get(key) ?? [];
-    if (matches.includes(word)) return;
+    const existing = this.anagrams.get(key);
+    if (existing && existing.split(' ').indexOf(word) !== -1) return;
 
     this.addWord(rawWord);
 
