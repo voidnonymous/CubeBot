@@ -12,23 +12,36 @@ src/server.js         HTTP server. Routes: /api/stats, /api/config, /api/send, /
                       /api/join, /api/leave, /api/hardcore, /api/warp-afk, /api/reload-words,
                       /api/raw-scoreboard, /api/private-mode, /api/scoreboard, /api/players,
                       /api/reset, /api/auth, /api/longterm. Periodic GC every 30min.
-src/botController.js  Main bot logic (~1113 lines). Handles connect/reconnect, prompt
+                      Response compression: brotli/gzip via Accept-Encoding negotiation
+                      (threshold 512B, skips if compressed larger than original).
+src/botController.js  Main bot logic (~1139 lines). Handles connect/reconnect, prompt
                       parsing, answering, scoreboard, anti-detection, humanization, private
                       messaging, chat logging, map CAPTCHA, chunk tracking.
-src/stats.js          StatsStore — singleton state with snapshot(), long-term persistence,
-                      logs, manaHistory (cap 120 entries), scoreboard storage.
+src/stats.js          StatsStore — singleton state with snapshot(), long-term persistence
+                      (gzip-compressed stats.json.gz), logs, manaHistory (cap 120 entries),
+                      scoreboard storage.
 src/wordSolver.js     Anagram-based word solver. Loads words.txt, Q-table scoring (wins/
-                      attempts ratio), exploration, blocklist, fallback patterns.
+                      attempts ratio), exploration, blocklist, fallback patterns. Q-table
+                      persistence via gzip (qtable.json.gz). Scoring offloaded to worker
+                      thread (src/workers/wordWorker.js) for parallel candidate sorting.
 src/chatParser.js     Parses chat messages. Handles: standard "name > msg", weird symbols
                       (fallback regex), PM arrows (->), nobody-got-scrambler, nobody+the-word-was
                       (two-line split learning), "you won" detection.
 src/mapHandler.js     Map CAPTCHA solver. Listens for map packets, polls inventory for
-                      filled_map, converts pixel data to PNG (handwritten encoder), sends to
-                      Ollama at 192.168.68.74:11434 (model gemma4:e2b), replies in chat.
+                      filled_map, converts pixel data to PNG (handwritten encoder). PNG
+                      encoding (zlib deflate + CRC32) offloaded to worker thread
+                      (src/workers/mapWorker.js) via transferable ArrayBuffer. Falls back
+                      to inline encoding if worker unavailable. Sends to Ollama at
+                      192.168.68.74:11434 (model gemma4:e2b), replies in chat.
 src/chunkTracker.js   Chunk change detection. Sets RD→2, hashes chunks via FNV-1a (fast,
                       no crypto), stores key→hash map (~25 entries, ~800 bytes). Warns on
-                      hash mismatch. Work deferred via setImmediate to avoid event-loop
-                      blocking. No raw chunk data stored.
+                      hash mismatch. Hashing offloaded to worker thread
+                      (src/workers/chunkWorker.js) with local fallback. Work deferred via
+                      setImmediate to avoid event-loop blocking. No raw chunk data stored.
+src/workers/          Worker thread pool directory:
+  mapWorker.js          PNG encoder — pixel buffer → zlib deflate → CRC32 → PNG binary.
+  chunkWorker.js        FNV-1a hasher — chunk dump buffer → 32-bit hex hash.
+  wordWorker.js         Candidate scorer — scoreWord + Q-table weighting + sort.
 public/index.html     WebUI — Catppuccin Mocha theme. Tabs: Players, Chat, Logs, Config.
                       Sidebar, mobile drawer, KB shortcuts (Ctrl+1-4), Ctrl+Enter send,
                       Enter=newline toggle, sparkline, memory bar (throttled 10s),
@@ -77,8 +90,14 @@ Known Quirks
 - Q-table was silently broken (multiplying object, not ratio) — fixed.
 - tick_end removed as too risky.
 - player_loaded kept (one-shot, try/catch wrapped).
+- Worker threads: lazy-created per task type, fall back to inline execution
+  if Worker() constructor fails (e.g. --experimental-worker disabled).
+- Buffer transfer via postMessage detaches source ArrayBuffer; copies used
+  when local fallback may read the buffer after transfer.
 
 To-Do
 -----
 - Resource pack font extraction for custom unicode glyphs.
 - Head rotation, occasional chat messages, auto-taunt, inventory flick.
+- Cluster mode for true multi-process parallelism.
+- Brotli-compressed WebSocket frames if real-time streaming added.

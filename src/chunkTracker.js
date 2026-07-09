@@ -1,3 +1,31 @@
+import { WorkerPool } from './workers/pool.js';
+
+let _pool = null;
+function getPool() {
+  if (!_pool) {
+    try {
+      _pool = new WorkerPool({ size: 1 });
+    } catch {
+      _pool = null;
+    }
+  }
+  return _pool;
+}
+
+async function hashWithWorker(buf, key) {
+  const pool = getPool();
+  if (!pool) return null;
+  try {
+    const res = await pool.postMessage(
+      { type: 'hash', key, data: buf },
+      [buf.buffer]
+    );
+    return res.hash;
+  } catch {
+    return null;
+  }
+}
+
 function fnv1a(buf) {
   let hash = 0x811c9dc5 >>> 0;
   for (let i = 0; i < buf.length; i++) {
@@ -34,13 +62,13 @@ export class ChunkTracker {
     }
 
     this._onChunk = (x, z) => {
-      setImmediate(() => {
+      setImmediate(async () => {
         try {
           const col = this.bot.world.getColumn(x, z);
           if (!col || typeof col.dump !== 'function') return;
           const buf = col.dump();
-          const hash = fnv1a(buf);
           const key = `${x},${z}`;
+          const hash = await hashWithWorker(Buffer.from(buf), key) || fnv1a(buf);
           const prev = this.hashes.get(key);
           if (prev && prev !== hash) {
             this.changedKeys.add(key);

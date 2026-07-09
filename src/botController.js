@@ -277,14 +277,14 @@ export class BotController {
         if (isTarget || isOwn || !parsed) {
           this.stats.recordMessage(text);
           this.processMessage(text);
-          this.handlePrompt(text);
+          this.handlePrompt(text).catch((err) => this.stats.recordLog('error', `handlePrompt error: ${err.message}`));
         }
         return;
       }
 
       this.stats.recordMessage(text);
       this.processMessage(text);
-      this.handlePrompt(text);
+      this.handlePrompt(text).catch((err) => this.stats.recordLog('error', `handlePrompt error: ${err.message}`));
     });
 
     bot.on('kicked', (reason) => {
@@ -603,7 +603,7 @@ export class BotController {
     return cur >= this._jitteredStart && cur < this._jitteredEnd;
   }
 
-  handlePrompt(text) {
+  async handlePrompt(text) {
     if (!this._answeringEnabled) return;
 
     const isUserActive = this._lastUserActivity > 0 && Date.now() - this._lastUserActivity < USER_ACTIVE_MS;
@@ -646,7 +646,7 @@ export class BotController {
       return;
     }
 
-    const result = this.solver.findAnswer(text);
+    const result = await this.solver.findAnswer(text);
     if (!result) {
       if (/wins\s+\$?500/i.test(text)) {
         this.stats.recordLog('warn', 'Unrecognized prompt format — server may have changed wording', text);

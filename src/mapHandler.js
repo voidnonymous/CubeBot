@@ -1,9 +1,22 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
+import { WorkerPool } from './workers/pool.js';
 
 const OLLAMA_URL = 'http://192.168.68.74:11434/api/generate';
 const OLLAMA_MODEL = 'gemma4:e2b';
+
+let _pool = null;
+function getPool() {
+  if (!_pool) {
+    try {
+      _pool = new WorkerPool({ size: 1 });
+    } catch {
+      _pool = null;
+    }
+  }
+  return _pool;
+}
 
 const BASE_COLORS = [
   [0, 0, 0],       [127, 178, 56], [247, 233, 163], [199, 199, 199],
@@ -18,22 +31,6 @@ const BASE_COLORS = [
 ];
 
 const SHADE_MULTS = [180, 220, 255, 135];
-
-function indexToRGB(index) {
-  if (index < 0 || index > 255) return [0, 0, 0];
-  const cid = Math.floor(index / 4);
-  const shade = index % 4;
-  const base = BASE_COLORS[cid];
-  if (!base) return [0, 0, 0];
-  const m = SHADE_MULTS[shade];
-  return [Math.floor(base[0] * m / 255), Math.floor(base[1] * m / 255), Math.floor(base[2] * m / 255)];
-}
-
-function toTimestampName() {
-  const d = new Date();
-  const pad = (n) => String(n).padStart(2, '0');
-  return `map-${pad(d.getHours())}-${pad(d.getMinutes())}-${pad(d.getDate())}-${pad(d.getMonth() + 1)}-${String(d.getFullYear()).slice(2)}.png`;
-}
 
 const CRC_TABLE = (() => {
   const t = new Uint32Array(256);
@@ -61,7 +58,7 @@ function pngChunk(type, data) {
   return Buffer.concat([len, typeB, data, crcB]);
 }
 
-function createPNG(width, height, rgba) {
+function createPNGLocal(width, height, rgba) {
   const stride = 1 + width * 3;
   const raw = Buffer.alloc(height * stride);
   for (let y = 0; y < height; y++) {
@@ -92,6 +89,36 @@ function createPNG(width, height, rgba) {
     pngChunk('IDAT', compressed),
     pngChunk('IEND', Buffer.alloc(0)),
   ]);
+}
+
+async function createPNG(width, height, rgba) {
+  const pool = getPool();
+  if (pool) {
+    try {
+      const res = await pool.postMessage(
+        { type: 'createPNG', width, height, rgba },
+        [rgba.buffer]
+      );
+      return Buffer.from(res.data);
+    } catch {}
+  }
+  return createPNGLocal(width, height, rgba);
+}
+
+function indexToRGB(index) {
+  if (index < 0 || index > 255) return [0, 0, 0];
+  const cid = Math.floor(index / 4);
+  const shade = index % 4;
+  const base = BASE_COLORS[cid];
+  if (!base) return [0, 0, 0];
+  const m = SHADE_MULTS[shade];
+  return [Math.floor(base[0] * m / 255), Math.floor(base[1] * m / 255), Math.floor(base[2] * m / 255)];
+}
+
+function toTimestampName() {
+  const d = new Date();
+  const pad = (n) => String(n).padStart(2, '0');
+  return `map-${pad(d.getHours())}-${pad(d.getMinutes())}-${pad(d.getDate())}-${pad(d.getMonth() + 1)}-${String(d.getFullYear()).slice(2)}.png`;
 }
 
 export class MapHandler {
@@ -155,7 +182,7 @@ export class MapHandler {
       pixels[i * 4 + 3] = 255;
     }
 
-    const png = createPNG(cols, rows, pixels);
+    const png = await createPNG(cols, rows, pixels);
     const filename = toTimestampName();
     const filepath = path.resolve(process.cwd(), filename);
     fs.writeFileSync(filepath, png);

@@ -1,9 +1,37 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import zlib from 'node:zlib';
 import { fileURLToPath } from 'node:url';
+import { WorkerPool } from './workers/pool.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const QTABLE_FILE = path.resolve(__dirname, '..', 'qtable.json');
+const QTABLE_FILE_GZ = QTABLE_FILE + '.gz';
+
+let _pool = null;
+function getPool() {
+  if (!_pool) {
+    try {
+      _pool = new WorkerPool({ size: 1 });
+    } catch {
+      _pool = null;
+    }
+  }
+  return _pool;
+}
+
+async function scoreCandidatesInWorker(scrambled, candidates, qtable) {
+  const pool = getPool();
+  if (!pool) return null;
+  try {
+    const res = await pool.postMessage(
+      { type: 'scoreCandidates', scrambled, candidates, qtable }
+    );
+    return res.scored;
+  } catch {
+    return null;
+  }
+}
 
 // Exact message must match start-to-end — no extra prefix/suffix
 const TYPE_PROMPT = /^The first person to type\s+(.+?)\s+wins\s+\$500!?$/i;
@@ -31,7 +59,7 @@ export class WordSolver {
     this.loadWords();
   }
 
-  findAnswer(text) {
+  async findAnswer(text) {
     let match;
 
     match = TYPE_PROMPT.exec(text);
@@ -68,18 +96,17 @@ export class WordSolver {
     if (match) {
       const raw = cleanAnswer(match[1]);
       if (!isValidPromptAnswer(raw)) return null;
-      return {
-        ...this.makeScrambleResult(raw, text),
-        fallback: true,
-      };
+      const result = await this.makeScrambleResult(raw, text);
+      result.fallback = true;
+      return result;
     }
 
     return null;
   }
 
-  makeScrambleResult(raw, text) {
+  async makeScrambleResult(raw, text) {
     const scrambled = cleanAnswer(raw);
-    const answers = this.unscrambleAll(scrambled);
+    const answers = await this.unscrambleAllAsync(scrambled);
     return {
       kind: 'scramble',
       answer: answers[0] || null,
@@ -156,6 +183,22 @@ export class WordSolver {
     return scored.map((s) => s.word);
   }
 
+  async unscrambleAllAsync(scrambled) {
+    const normalized = normalizeWord(scrambled);
+    if (!normalized) return [];
+
+    const sig = signature(normalized);
+    const raw = this.anagrams.get(sig);
+    if (!raw) return [];
+
+    const words = raw.split(' ');
+    try {
+      const scored = await scoreCandidatesInWorker(scrambled, words, this.qtable);
+      if (scored) return scored;
+    } catch {}
+    return this.unscrambleAll(scrambled);
+  }
+
   scoreWord(word, normalized, sig) {
     let score = 0;
 
@@ -217,20 +260,25 @@ export class WordSolver {
 
   loadQTable() {
     try {
+      if (fs.existsSync(QTABLE_FILE_GZ)) {
+        return JSON.parse(zlib.gunzipSync(fs.readFileSync(QTABLE_FILE_GZ)).toString('utf8'));
+      }
       if (fs.existsSync(QTABLE_FILE)) {
         return JSON.parse(fs.readFileSync(QTABLE_FILE, 'utf8'));
       }
     } catch (err) {
-      console.error('Error loading qtable.json:', err);
+      console.error('Error loading qtable:', err);
     }
     return {};
   }
 
   saveQTable() {
     try {
-      fs.writeFileSync(QTABLE_FILE, JSON.stringify(this.qtable, null, 2), 'utf8');
+      const data = Buffer.from(JSON.stringify(this.qtable), 'utf8');
+      fs.writeFileSync(QTABLE_FILE_GZ, zlib.gzipSync(data, { level: 9 }));
+      try { fs.unlinkSync(QTABLE_FILE); } catch {}
     } catch (err) {
-      console.error('Error saving qtable.json:', err);
+      console.error('Error saving qtable:', err);
     }
   }
 

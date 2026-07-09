@@ -1,4 +1,5 @@
 import http from 'node:http';
+import zlib from 'node:zlib';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -6,6 +7,41 @@ import { config } from './config.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const publicDir = path.resolve(__dirname, '..', 'public');
+
+function acceptsEncoding(headers, encoding) {
+  const ae = (headers?.['accept-encoding'] || '').toLowerCase();
+  return ae.includes(encoding);
+}
+
+function compressResponse(response, status, contentType, body) {
+  const acceptGzip = acceptsEncoding(response.req?.headers, 'gzip');
+  const acceptBr = acceptsEncoding(response.req?.headers, 'br');
+
+  if (acceptBr && body.length > 512) {
+    zlib.brotliCompress(body, (err, compressed) => {
+      if (err || compressed.length >= body.length) {
+        response.writeHead(status, { 'content-type': contentType, 'cache-control': 'no-store', 'content-length': Buffer.byteLength(body) });
+        response.end(body);
+      } else {
+        response.writeHead(status, { 'content-type': contentType, 'content-encoding': 'br', 'cache-control': 'no-store' });
+        response.end(compressed);
+      }
+    });
+  } else if (acceptGzip && body.length > 512) {
+    zlib.gzip(body, (err, compressed) => {
+      if (err || compressed.length >= body.length) {
+        response.writeHead(status, { 'content-type': contentType, 'cache-control': 'no-store', 'content-length': Buffer.byteLength(body) });
+        response.end(body);
+      } else {
+        response.writeHead(status, { 'content-type': contentType, 'content-encoding': 'gzip', 'cache-control': 'no-store' });
+        response.end(compressed);
+      }
+    });
+  } else {
+    response.writeHead(status, { 'content-type': contentType, 'cache-control': 'no-store', 'content-length': Buffer.byteLength(body) });
+    response.end(body);
+  }
+}
 
 export function createServer({ stats, botController }) {
   // Periodic GC every 30 minutes
@@ -178,17 +214,10 @@ export function listen(server) {
 
 async function sendFile(response, filePath, contentType) {
   const body = await readFile(filePath);
-  response.writeHead(200, {
-    'content-type': contentType,
-    'cache-control': 'no-store',
-  });
-  response.end(body);
+  compressResponse(response, 200, contentType, body);
 }
 
 function sendJson(response, status, value) {
-  response.writeHead(status, {
-    'content-type': 'application/json; charset=utf-8',
-    'cache-control': 'no-store',
-  });
-  response.end(JSON.stringify(value, null, 2));
+  const body = Buffer.from(JSON.stringify(value), 'utf8');
+  compressResponse(response, status, 'application/json; charset=utf-8', body);
 }

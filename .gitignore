@@ -3,5 +3,7 @@ npm-debug.log*
 .env
 .minecraft-auth/
 stats.json
+stats.json.gz
 qtable.json
+qtable.json.gz
 chat.log

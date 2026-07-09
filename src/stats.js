@@ -1,11 +1,13 @@
 import { EventEmitter } from 'node:events';
 import fs from 'node:fs';
+import zlib from 'node:zlib';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseMessageSenderAndContent } from './chatParser.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const STATS_FILE = path.resolve(__dirname, '..', 'stats.json');
+const STATS_FILE_GZ = STATS_FILE + '.gz';
 
 const MAX_LOGS = 100;
 const MAX_CHATS = 100;
@@ -19,11 +21,14 @@ export class StatsStore extends EventEmitter {
 
   loadLongTermStats() {
     try {
+      if (fs.existsSync(STATS_FILE_GZ)) {
+        return JSON.parse(zlib.gunzipSync(fs.readFileSync(STATS_FILE_GZ)).toString('utf8'));
+      }
       if (fs.existsSync(STATS_FILE)) {
         return JSON.parse(fs.readFileSync(STATS_FILE, 'utf8'));
       }
     } catch (err) {
-      console.error('Error loading stats.json:', err);
+      console.error('Error loading stats:', err);
     }
     return {
       allTimeMana: 0,
@@ -41,9 +46,11 @@ export class StatsStore extends EventEmitter {
 
   saveLongTermStats() {
     try {
-      fs.writeFileSync(STATS_FILE, JSON.stringify(this.longTerm, null, 2), 'utf8');
+      const data = Buffer.from(JSON.stringify(this.longTerm), 'utf8');
+      fs.writeFileSync(STATS_FILE_GZ, zlib.gzipSync(data, { level: 9 }));
+      try { fs.unlinkSync(STATS_FILE); } catch {}
     } catch (err) {
-      console.error('Error saving stats.json:', err);
+      console.error('Error saving stats:', err);
     }
   }
 

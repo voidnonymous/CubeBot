@@ -1,7 +1,7 @@
 import { spawn } from 'child_process';
 
 if (!process.execArgv.some(a => a.includes('--expose-gc'))) {
-  const child = spawn(process.execPath, ['--expose-gc', '--optimize-for-size', ...process.argv.slice(1)], {
+  const child = spawn(process.execPath, ['--expose-gc', '--optimize-for-size', '--max-semi-space-size=2', '--max-old-space-size=256', ...process.argv.slice(1)], {
     stdio: 'inherit',
     env: { ...process.env },
   });
